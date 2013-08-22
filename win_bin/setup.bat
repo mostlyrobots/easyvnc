@@ -10,4 +10,4 @@ xcopy "dist" "C:\Program Files\EasyVNC" /E /Y /I
 
 xcopy "dist\EasyVNC.lnk" "%HOMEDRIVE%%HOMEPATH%\Desktop\"  /Y
 
-.\dist\vcredist_x86.exe
+.\dist\vcredist_x86.exe /Q
