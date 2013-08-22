@@ -1,7 +1,7 @@
 #! /usr/bin/env pythonw
 # -*- coding: utf-8 -*-
 
-__version__ = filter(str.isdigit, "$Revision: $")
+__version__ = filter(str.isdigit, "$Revision$")
 
 import base64
 from binascii import hexlify
