@@ -108,6 +108,8 @@ def get_vnc_enc(password):
     strkey = ''.join([ chr(x) for x in d3des.vnckey ])
     ekey = d3des.deskey(strkey, False)
     ctext = d3des.desfunc(passpadd, ekey)
+    if len(password) > 8:
+	    ctext += get_vnc_enc(password[8:])
     return ctext
 
 class ForwardServer (SocketServer.ThreadingTCPServer):
