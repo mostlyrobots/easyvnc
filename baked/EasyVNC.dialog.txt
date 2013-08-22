@@ -1,0 +1,3 @@
+This will install EasyVNC into C:\Program Files\ and create a shortcut on your desktop.
+
+It will then run the VC Redistributable Installer.
