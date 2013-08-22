@@ -169,7 +169,7 @@ def connect(event=None):
 	verbose("%s@%s:%s" % (username, hostname, port))
 
 	vnccommand = app.vnccommand
-	vncargs = ' -passwordfile=- -autoreconnect=1 -clientcuttext=1 -encryption=preferoff -shared=0 -uselocalcursor=1 -securitynotificationtimeout=0 -servercuttext=1 -sharefiles=1 -username=%s -warnunencrypted=0 localhost:' % (username)
+	vncargs = ' -passwordfile=- -verifyid=0 -autoreconnect=1 -clientcuttext=1 -encryption=preferoff -shared=0 -uselocalcursor=1 -securitynotificationtimeout=0 -servercuttext=1 -sharefiles=1 -username=%s -warnunencrypted=0 localhost:' % (username)
 	verbose(vnccommand[0] + vncargs)
 
 	remote_vnccommand = '~/vncserver -api'
@@ -208,7 +208,10 @@ def connect(event=None):
 		vncprocess.stdin.write(vncpassword)
 		vncprocess.stdin.close()
 		master.withdraw()
-
+	except ValueError:
+			tkMessageBox.showwarning("Server Error", "%s did not respond as expected to the command %s\n Contact server support and report this error." % (hostname, remote_vnccomand))
+			t.close()
+			return
 	except paramiko.AuthenticationException:
 			tkMessageBox.showwarning("Connect Failed", "Authentication failed :(  You provided an incorrect username or password for %s" % (hostname))
 			t.close()
