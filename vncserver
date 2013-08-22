@@ -1,0 +1,109 @@
+#!/bin/bash
+
+#vnc="echo"
+vnc="/usr/bin/.remotex"
+VNCACTIVE=($(ps -C Xvnc -o user,args | grep $USER | cut -d ':' -f2 | cut -d ' ' -f1))
+VNCPORT=$(expr ${VNCACTIVE[0]} + 5900)
+
+run_vnc () {
+	case ${#VNCACTIVE[@]} in
+		0)
+			 remove_locks
+			 $vnc $1 $2 $3 $4 $5
+			 VNCACTIVE=($(ps -C Xvnc -o user,args | grep $USER | cut -d ':' -f2 | cut -d ' ' -f1))
+		;;	
+	
+		1)
+			echo "You are currently running VNC on port ${VNCACTIVE[@]}"
+
+		;;
+	
+		*)
+			echo "You are currently running VNC on ports ${VNCACTIVE[@]}"
+			echo "You may only run one VNC session at a time.  Please stop all sessions and restart."
+		;;
+	esac		
+	
+	echo " "
+	echo "To stop all sessions type \"vncserver -kill\""
+	echo "For Windows connection help type  \"vncserver -winhelp\""
+	echo "For Mac connection help type  \"vncserver -machelp\""
+}
+
+remove_locks () {
+
+	ls -l /tmp/.X* | grep $USER >> /dev/null 2>&1
+	if [ "$?" == "0" ]; then
+		echo "VNC already stopped. Cleaning up after unclean shut down."
+		find /tmp/.X* -user $USER -print0 | xargs -0 rm
+	fi
+			
+}
+
+
+
+case "$1" in
+	*winhelp)
+		echo "For detailed instructions please visit https://sscs.uchicago.edu/page/running-vnc"
+		echo 
+		echo "Putty tunnel configuration"
+		echo 
+		echo "Open a new putty window, and enter the following:"
+		echo 
+		echo "Host Name (or IP address): $HOSTNAME.uchicago.edu"
+		echo " " 
+		echo "On left click Connection > SSH > Tunnels"
+		echo "Source port = $VNCPORT"
+		echo "Destination = localhost:$VNCPORT"
+		echo "Click Add"
+		echo "Click Open and then log in"
+		echo " "
+		echo "Remember to keep the tunnel open while you work in VNC "
+		echo " "
+		echo "Start RealVNC and connect to localhost:$VNCPORT"
+		exit 0
+	;;
+
+	*machelp)
+		echo "For detailed instructions please visit https://sscs.uchicago.edu/page/running-vnc"
+		echo 
+		echo "Open a new terminal on your Mac"
+		echo "Make sure you are not logged into $HOSTNAME"
+		echo "Type hostname if it responds with $HOSTNAME log out of $HOSTNAME"
+		echo ""
+		echo "Copy and paste the following into the terminal on your Mac"
+		echo "ssh -L $VNCPORT:localhost:$VNCPORT $USER@$HOSTNAME.uchicago.edu"
+		echo " "
+		echo "Log in and keep this tunnel open while working in VNC"
+		echo "Start RealVNC and connect to localhost:$VNCPORT"
+		exit 0
+	;;
+
+	*api)
+		shift
+		run_vnc $@ -geometry 1024x768 -randr 1680x1050,1280x800,2048x1150,1920x1200,1152x864,1600x900,1366x768,1280x1024,1440x900,2560x1440,1024x768,1920x1080 >/dev/null
+		echo ${VNCACTIVE[0]}
+		exit 0
+	;;
+	
+	*kill)
+		#for a in $LOCK; do 
+		#   if [ -O $a ]; then
+		if [ ${VNCACTIVE[0]} > 0 ]; then
+			for i in "${VNCACTIVE[@]}"; do
+				$vnc -kill :$i
+				echo "The VNC session on port ${i} has been terminated."
+			done
+		fi
+		exit 0
+	;;
+	
+	*)
+		run_vnc $@
+		exit 0
+	;;
+
+esac
+
+
+
