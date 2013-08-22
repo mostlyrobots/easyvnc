@@ -209,7 +209,7 @@ def connect(event=None):
 		vncprocess.stdin.close()
 		master.withdraw()
 	except ValueError:
-			tkMessageBox.showwarning("Server Error", "%s did not respond as expected to the command %s\n Contact server support and report this error." % (hostname, remote_vnccomand))
+			tkMessageBox.showwarning("Server Error", "%s did not respond as expected to the command \n %s\nContact server support and report this error." % (hostname, remote_vnccommand))
 			t.close()
 			return
 	except paramiko.AuthenticationException:
