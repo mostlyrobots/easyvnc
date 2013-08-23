@@ -1,6 +1,9 @@
 #! /usr/bin/env pythonw
 # -*- coding: utf-8 -*-
 
+
+# This file represents the main user interface for the project.
+
 __version__ = filter(str.isdigit, "$Revision$")
 
 import base64
@@ -13,7 +16,7 @@ import time
 import traceback
 
 import paramiko
-#import interactive
+
 import d3des
 
 import SocketServer
@@ -159,7 +162,8 @@ def forward_tunnel(local_port, remote_host, remote_port, transport):
 
 
 def connect(event=None):
-	if app.password.get() == "":
+	if app.password.get() == "" or app.username.get() == '' or app.hostname.get() == '':
+		tkMessageBox.showwarning("Incomplete Form", "You must supply a server name, username, and password.")
 		return
 	
 	app.save()
