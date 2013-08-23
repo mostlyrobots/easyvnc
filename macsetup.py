@@ -9,7 +9,7 @@ from setuptools import setup
 
 APP = ['EasyVNC.py']
 DATA_FILES = []
-OPTIONS = {'argv_emulation': False}
+OPTIONS = {'argv_emulation': False, 'iconfile': 'icons/EasyVNC.icns'}
 
 setup(
     app=APP,
