@@ -4,7 +4,7 @@
 
 # This file represents the main user interface for the project.
 
-__version__ = filter(str.isdigit, "$Revision$")
+__version__ = int(filter(str.isdigit, "$Revision$"))
 
 import base64
 from binascii import hexlify
@@ -203,12 +203,15 @@ def connect(event=None):
 		stdout = chan.makefile('rb')
 		stderr = chan.makefile_stderr('rb')
 		vncport = int(stdout.readline())
-		
 		verbose('Discovered VNC on port %i' % (vncport))
+
+		remoteversion = int(stdout.readline())
+		verbose('Remote version %i' %(remoteversion))
+		if remoteversion > __version__:
+			tkMessageBox.showwarning("Update Available", "There is a newer version of EasyVNC available for download.  Please download and install a new copy from sw.src.uchicago.edu in order to ensure continued use.")
 		chan.close()
 		vncargs += str(vncport + 5900)
 		thread.start_new_thread(forward_tunnel, (vncport + 5900, 'localhost', vncport + 5900, t, ))
-		thread.start_new_thread(forward_tunnel, (vncport + 5800, 'localhost', vncport + 5800, t, ))		
 		vnccommand += vncargs.split()
 		vncprocess = subprocess.Popen(vnccommand, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 		vncprocess.stdin.write(vncpassword)
