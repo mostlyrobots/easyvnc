@@ -4,6 +4,7 @@
 vnc="/usr/bin/.remotex"
 VNCACTIVE=($(ps -C Xvnc -o user,args | grep $USER | cut -d ':' -f2 | cut -d ' ' -f1))
 VNCPORT=$(expr ${VNCACTIVE[0]} + 5900)
+VERSION=13
 
 run_vnc () {
 	case ${#VNCACTIVE[@]} in
@@ -83,6 +84,7 @@ case "$1" in
 		shift
 		run_vnc $@ -geometry 1024x768 -randr 1680x1050,1280x800,2048x1150,1920x1200,1152x864,1600x900,1366x768,1280x1024,1440x900,2560x1440,1024x768,1920x1080 >/dev/null
 		echo ${VNCACTIVE[0]}
+		echo $VERSION
 		exit 0
 	;;
 	

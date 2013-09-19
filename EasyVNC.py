@@ -178,7 +178,7 @@ def connect(event=None):
 	vncargs = ' -passwordfile=- -verifyid=0 -autoreconnect=1 -clientcuttext=1 -encryption=preferoff -shared=0 -uselocalcursor=1 -securitynotificationtimeout=0 -servercuttext=1 -sharefiles=1 -username=%s -warnunencrypted=0 localhost:' % (username)
 	verbose(vnccommand[0] + vncargs)
 
-	remote_vnccommand = '~/vncserver -api'
+	remote_vnccommand = '/usr/bin/vncserver -api'
 	
 	try:
 		sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
