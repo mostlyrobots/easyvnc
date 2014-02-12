@@ -4,6 +4,7 @@
 
 # This file represents the main user interface for the project.
 
+
 __version__ = int(filter(str.isdigit, "$Revision$"))
 
 import base64
