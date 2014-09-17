@@ -63,7 +63,7 @@ class MainUI(Frame):
 		frame = Frame(self, relief='flat', borderwidth=10)
 
 		Label(frame, text='VNC Host:').grid(row=0, sticky=W)
-		hostOption = OptionMenu(frame, self.hostname, "", "athensx", "cronusx", "corinthx", "rhodesx", "acropolis")
+		hostOption = OptionMenu(frame, self.hostname, "", "athensx", "cronusx", "century", "corinthx", "rhodesx", "acropolis")
 		hostOption.grid(row=0, column=1, pady=10, padx=5)
 
 		Label(frame, text='Username:').grid(row=1, sticky=W)
@@ -171,6 +171,8 @@ def connect(event=None):
 	username = app.username.get()
 	password = app.password.get()
 	vncpassword = get_vnc_enc(password)
+	hostname = app.hostname.get()
+	if hostname == "corinthx": hostname = "rhodesx"
 	hostname = app.hostname.get() + '.uchicago.edu'
 	port = 22
 	verbose("%s@%s:%s" % (username, hostname, port))
