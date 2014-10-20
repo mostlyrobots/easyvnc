@@ -63,7 +63,7 @@ class MainUI(Frame):
 		frame = Frame(self, relief='flat', borderwidth=10)
 
 		Label(frame, text='VNC Host:').grid(row=0, sticky=W)
-		hostOption = OptionMenu(frame, self.hostname, "", "athensx", "cronusx", "century", "corinthx", "rhodesx", "acropolis")
+		hostOption = OptionMenu(frame, self.hostname, "", "acropolis", "athensx", "cronusx", "century", "rhodesx")
 		hostOption.grid(row=0, column=1, pady=10, padx=5)
 
 		Label(frame, text='Username:').grid(row=1, sticky=W)
