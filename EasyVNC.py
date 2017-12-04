@@ -29,6 +29,7 @@ from tkinter import *
 from tkinter.ttk import *
 from tkinter import messagebox as tkMessageBox
 
+64
 class MainUI(Frame):
 
 	def __init__(self, parent):
@@ -40,7 +41,7 @@ class MainUI(Frame):
 
 		self.homedir = os.path.expanduser("~")
 		if os.name == 'nt':
-			self.vnccommand = ['vncviewer.exe']
+			self.vnccommand = [ get_script_dir() + '\\vncviewer.exe\\vncviewer.exe']
 			self.username.set(os.environ.get('USERNAME'))
 			self.configfile = self.homedir + '\\mvnc.cfg'
 		else:
@@ -264,7 +265,7 @@ run_vnc
 			t.close()
 			return
 	except Exception as e:
-		tkMessageBox.showwarning("Unhandled Exception", "An application error has occured.\n Traceback: %s Dir:%s" % (traceback.format_exc(), get_script_dir()))
+		tkMessageBox.showwarning("Unhandled Exception", "An application error has occured.\n Traceback: %s Dir:%s CMD: %s" % (traceback.format_exc(), get_script_dir(), vnccommand))
 		sys.exit(1)
 
 
