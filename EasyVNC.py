@@ -40,10 +40,7 @@ class MainUI(Frame):
 
 		self.homedir = os.path.expanduser("~")
 		if os.name == 'nt':
-			if 'PROGRAMFILES(X86)' in os.environ:
-				self.vnccommand = ['vncviewer_64.exe']
-			else:
-				self.vnccommand = ['vncviewer_32.exe']
+			self.vnccommand = ['vncviewer.exe']
 			self.username.set(os.environ.get('USERNAME'))
 			self.configfile = self.homedir + '\\mvnc.cfg'
 		else:
