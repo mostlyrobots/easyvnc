@@ -4,13 +4,9 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Resources/AboutDialog.nib/keyedobjects.nib</key>
+		<key>Resources/CloudConfig.pkg</key>
 		<data>
-		5mMD079665cFP9p67Eoe7hzBVRs=
-		</data>
-		<key>Resources/ChatView.nib/keyedobjects.nib</key>
-		<data>
-		OL/6771EwEzSR/f9MdchHFTW1LE=
+		NZ1FnQ6Lh+06XE6STfIxzVQQU4k=
 		</data>
 		<key>Resources/FTClose.png</key>
 		<data>
@@ -28,9 +24,9 @@
 		<data>
 		OgAYhU+ZvF342eSAITHLKX6KHGo=
 		</data>
-		<key>Resources/FTNotification.nib/keyedobjects.nib</key>
+		<key>Resources/FTNotification.nib</key>
 		<data>
-		bq7knMGnNnRhsBc7a5OPPMEuPxw=
+		PKNj3GWoP0UYZcCxAsITCylF5rk=
 		</data>
 		<key>Resources/FTPause.png</key>
 		<data>
@@ -56,25 +52,65 @@
 		<data>
 		3jzSzKx+1j6V5V+9mJribhrnMLM=
 		</data>
-		<key>Resources/FileTransferDialog.nib/keyedobjects.nib</key>
+		<key>Resources/FileTransferDialog.nib</key>
 		<data>
-		zNRu/2cADChaVRb5LQa0m/1ZhcM=
+		6HKRDgzXHAwx1pwPBjmytNEiBNA=
 		</data>
-		<key>Resources/PrintProgressDialog.nib/keyedobjects.nib</key>
+		<key>Resources/LICENSE_de.txt</key>
 		<data>
-		g17zdPxZ+REedah5UZEOgEEAmGo=
+		54b/CEwMFwVMubpVzhOK+l0khxM=
 		</data>
-		<key>Resources/StripesTileGreen.png</key>
+		<key>Resources/LICENSE_en.txt</key>
 		<data>
-		WureYItZZBJy9RtLKAZOahXAfOM=
+		GRMx5SSrG7lbdkaRSPBCoMgcIFc=
 		</data>
-		<key>Resources/StripesTileRed.png</key>
+		<key>Resources/LICENSE_es.txt</key>
 		<data>
-		IRAqgL+l5fZLgnM6/KQ1IJsXQKc=
+		moxRY2nrLoCR3Jbv0ZXKUuEMo58=
+		</data>
+		<key>Resources/LICENSE_fr.txt</key>
+		<data>
+		VMTtjUFxMdw056b+NS+ohMXtLmg=
+		</data>
+		<key>Resources/LICENSE_pt.txt</key>
+		<data>
+		Va42ommVyEIiPl1DKzwF2G+2WkM=
+		</data>
+		<key>Resources/PrintProgressDialog.nib</key>
+		<data>
+		/AxreiZ3+ELvM8zRCcgy971C60A=
+		</data>
+		<key>Resources/ProgressViewLogoC@2x.png</key>
+		<data>
+		KSvLfgsETEdvF6A+EfFuTbMYJZs=
+		</data>
+		<key>Resources/ProgressViewLogoN@2x.png</key>
+		<data>
+		no5ExOWAWmSIeGUtdgnAJyzXsao=
+		</data>
+		<key>Resources/ProgressViewLogoV@2x.png</key>
+		<data>
+		2jqp+aMQatmg2vd3AgX77hKYpR4=
+		</data>
+		<key>Resources/StripesTileRed@2x.png</key>
+		<data>
+		n//OAFGu9jswyZhwidqmO6os+kI=
+		</data>
+		<key>Resources/addressbook@2x.png</key>
+		<data>
+		y/xvFVsrNetYN442VUbGegtGw9U=
+		</data>
+		<key>Resources/addressbook_sel@2x.png</key>
+		<data>
+		vHCRG60eaD8UUnI5mlX5n4XtL8E=
 		</data>
 		<key>Resources/bannerStatusError@2x.png</key>
 		<data>
 		jvBVE0WhIGKNXWp3UGLec/p+gKk=
+		</data>
+		<key>Resources/bannerStatusOk@2x.png</key>
+		<data>
+		DgxggRuyko4y35ffqbtYPGq1udM=
 		</data>
 		<key>Resources/bannerStatusQuestion@2x.png</key>
 		<data>
@@ -88,89 +124,133 @@
 		<data>
 		zamX/KTKBhDIcAAJE6tI5ZkPPX4=
 		</data>
+		<key>Resources/blueMonitor@2x.png</key>
+		<data>
+		kyyaxQ6kc9rjtAiMVHGrmt46TY0=
+		</data>
+		<key>Resources/bonjour@2x.png</key>
+		<data>
+		fXfPeqmEaqnt+bP8SwPYolDBpX4=
+		</data>
+		<key>Resources/bullet1@2x.png</key>
+		<data>
+		qRYNfE5po4uoqT+2G1j+2REG7Gk=
+		</data>
+		<key>Resources/bullet2@2x.png</key>
+		<data>
+		ggPNMErYH3tHeBuD8cjgfAkVWL8=
+		</data>
+		<key>Resources/bullet3@2x.png</key>
+		<data>
+		5PdJnLAtb0Q4e3hsIDet4Rwx/W8=
+		</data>
+		<key>Resources/bullet4@2x.png</key>
+		<data>
+		nHlM35Rfl/QGeXV4koyEdmRrcmA=
+		</data>
 		<key>Resources/chatTb.png</key>
 		<data>
-		EtIu8oA9JR6cKU2MPBFoPYNFMlA=
-		</data>
-		<key>Resources/chatTb16x16.png</key>
-		<data>
-		YkSsm4Tdg8li8rfQCnkq8XGU0us=
-		</data>
-		<key>Resources/chatTb24x24.png</key>
-		<data>
-		6/fAGuVUAZUJwod4YutE7p1k/0E=
+		ba/H/9MoiM/UTCAanmAh/VvGQz8=
 		</data>
 		<key>Resources/close.png</key>
 		<data>
-		tbcb/I7zF3OMx4Lh3Hxs2AsM1lU=
-		</data>
-		<key>Resources/close16x16.png</key>
-		<data>
-		zVBtTyj81kOgykOnb6iAF4eM+jA=
-		</data>
-		<key>Resources/close24x24.png</key>
-		<data>
-		euCz410/gD0X1+jUJPSP9cjNajI=
-		</data>
-		<key>Resources/cloud.png</key>
-		<data>
-		4jECaharx4J6UBLQzQWmYMbze60=
-		</data>
-		<key>Resources/cloudOffline.png</key>
-		<data>
-		Yf+7pLWS7pLnupdhhWZ8dsJXsxs=
-		</data>
-		<key>Resources/cloudOnline.png</key>
-		<data>
-		+Yp5GIwLiGDbu2lSGGs8Ea3NErg=
+		ulWpi4ZPERY5/edqPxgxFfZnnW8=
 		</data>
 		<key>Resources/ctrlAltDel.png</key>
 		<data>
-		uC1JL/dNaOAbz0dPJ/3gURAjmt8=
+		JqoTDuyqKrg9SxzmCMRTIp9oeJg=
 		</data>
-		<key>Resources/ctrlAltDel16x16.png</key>
+		<key>Resources/downArrow@2x.png</key>
 		<data>
-		etjcVeVTLaS0Tg4OzJeJjAiN2aM=
+		MqkiND7qO8tDBveux+AOexFwJtI=
 		</data>
-		<key>Resources/ctrlAltDel24x24.png</key>
+		<key>Resources/elevateTb.png</key>
 		<data>
-		9+B+xMBiHrTXT1QzYRffzwtP5YY=
+		W5ULVnTqCfXEZcjqihqBoU5Rg3w=
+		</data>
+		<key>Resources/enter-fullScreen.png</key>
+		<data>
+		F8gADmvGe88UisGvvf6xnW+9aJc=
+		</data>
+		<key>Resources/exit-fullScreen.png</key>
+		<data>
+		oIyRurXLkdtK7TPf72EAEHfguFw=
+		</data>
+		<key>Resources/file@2x.png</key>
+		<data>
+		3gwW9Jmu+6896CqjGYulFs3EbQg=
+		</data>
+		<key>Resources/folder-noaccess@2x.png</key>
+		<data>
+		3tJg9YuSr4P6m7bqcaU7jqKzxSc=
+		</data>
+		<key>Resources/folder@2x.png</key>
+		<data>
+		4adbYheajTlOol1t5qv2G+S7z4M=
+		</data>
+		<key>Resources/fops_download@2x.png</key>
+		<data>
+		CmR7EkGMcXf6EZkwNyDt1H6ZYn0=
+		</data>
+		<key>Resources/fops_error@2x.png</key>
+		<data>
+		2IjeTDaoVwo71sdnREJ89JXunks=
+		</data>
+		<key>Resources/fops_noentry@2x.png</key>
+		<data>
+		fmdQm9lpQwsDLS2S7Rhx79aOJjw=
+		</data>
+		<key>Resources/fops_refresh@2x.png</key>
+		<data>
+		t5Qa6Mb9Diyt3lIFhpQaKzqMuOg=
+		</data>
+		<key>Resources/fops_upload@2x.png</key>
+		<data>
+		7/jd0RspFHitdRNI+nJIhC0KZcI=
+		</data>
+		<key>Resources/fops_warning@2x.png</key>
+		<data>
+		hSVkvlmAIE+hnz9eCIwAHKqqees=
 		</data>
 		<key>Resources/ftTb.png</key>
 		<data>
-		8MdoAzy/psl46gw7xKJuijPkWPU=
+		R+xHpVCtuMn7zg1SPjr8EYOyDys=
 		</data>
-		<key>Resources/ftTb16x16.png</key>
+		<key>Resources/getstarted@2x.png</key>
 		<data>
-		zz3LSwpFYCWwhKuTr88LhzMKGyY=
+		Wf8x2S1CZwu/4QHBotA1bU/77Ds=
 		</data>
-		<key>Resources/ftTb24x24.png</key>
+		<key>Resources/getstarted_de@2x.png</key>
 		<data>
-		ECLr0wlh6r/pTK8sZBQG8hc4Gnw=
+		moJtYcwjAFfmhoq1aZ67I42gXB4=
 		</data>
-		<key>Resources/fullScreen.png</key>
+		<key>Resources/getstarted_es@2x.png</key>
 		<data>
-		JQOzrYYKZAxsDK+IZjRu8uh5Jek=
+		a+t3p6cHDYwD72tksmdaOnIkzkU=
 		</data>
-		<key>Resources/fullScreen16x16.png</key>
+		<key>Resources/getstarted_fr@2x.png</key>
 		<data>
-		LkwgxjAXxHzm65vTv2WyXTy8Vlw=
+		3nGLb9hJWNC+FURPHsKcXxwJj10=
 		</data>
-		<key>Resources/fullScreen24x24.png</key>
+		<key>Resources/getstarted_pt@2x.png</key>
 		<data>
-		361KL4wRPtHMagGvgYJ8YBlJyd4=
+		LJAskUXqhtSYWIXKcx9g5peKV2A=
+		</data>
+		<key>Resources/greyMonitor@2x.png</key>
+		<data>
+		8/1gdcXeLQKlO41bqO1gzL3D6Ko=
+		</data>
+		<key>Resources/helv15.gz</key>
+		<data>
+		t22caRKx+S9o4JA/g2Wjtb4xZKs=
+		</data>
+		<key>Resources/helv16.gz</key>
+		<data>
+		wh79sWmc4lS6ed/HMItP+olsh1c=
 		</data>
 		<key>Resources/info.png</key>
 		<data>
-		pKea2zVQMRFLwySJyzx+OX+yiWQ=
-		</data>
-		<key>Resources/info16x16.png</key>
-		<data>
-		xnfNEdl8m0TGZZ+5Ku1lMp37K1w=
-		</data>
-		<key>Resources/info24x24.png</key>
-		<data>
-		PKkuVTh5/K9QcJADfIjW65nm51w=
+		/RoplMLUsPXY8i5itbyXo2nUUFA=
 		</data>
 		<key>Resources/infoframe_default@2x.png</key>
 		<data>
@@ -178,7 +258,7 @@
 		</data>
 		<key>Resources/infoframe_error@2x.png</key>
 		<data>
-		M9+aphHS0/bCPSoHGP7/AGtl5bs=
+		FGcrvjd0eY8jJ+X9fP7L/JWPMm4=
 		</data>
 		<key>Resources/infoframe_locked@2x.png</key>
 		<data>
@@ -190,7 +270,7 @@
 		</data>
 		<key>Resources/infoframe_preference@2x.png</key>
 		<data>
-		7xVZqI08jH2H7xlmhsJXShnqneE=
+		z57N9tb50vVpB8BNlVdFY08PQnA=
 		</data>
 		<key>Resources/infoframe_success@2x.png</key>
 		<data>
@@ -200,125 +280,65 @@
 		<data>
 		SQCUGFCus75E5ML89NGJqemjmGU=
 		</data>
-		<key>Resources/new.png</key>
+		<key>Resources/is_session_btn@2x.png</key>
 		<data>
-		90oC12Ft9aScG9kCBZioRir1108=
+		oIxCXJa8jkT6yFWSVlIH6dSb2h0=
 		</data>
-		<key>Resources/new16x16.png</key>
+		<key>Resources/label_fb@2x.png</key>
 		<data>
-		j/0WauYHRGZs+GTTuhg7dSCNhkY=
+		moUnxfBj5wNOJTg84TFw4CIfIoE=
 		</data>
-		<key>Resources/new24x24.png</key>
+		<key>Resources/label_fb_sel@2x.png</key>
 		<data>
-		xbAylNq/MmK3s/YcnPFgQVcoU08=
+		X6FIRp8rQMgb/ADNUI/OlPZPf8I=
+		</data>
+		<key>Resources/langDescs.txt</key>
+		<data>
+		6CoE5Q6LVo4xwD1lJDILPVcSYnU=
+		</data>
+		<key>Resources/langs.txt</key>
+		<data>
+		wj4pWRD6fqAExH09L839E5KzTFk=
+		</data>
+		<key>Resources/on_demand_vwrlogo@2x.png</key>
+		<data>
+		MtfHHH0U/LB/jxohW1U5wJPk7IE=
 		</data>
 		<key>Resources/options.png</key>
 		<data>
-		RfHraUTuKEeecxh6nxe+7+tj28o=
+		CDfg22Sm53gWdAwVXc/tqoryYfI=
 		</data>
-		<key>Resources/options16x16.png</key>
+		<key>Resources/rebootTb.png</key>
 		<data>
-		Utm/vs/fajK37fw1ZnjTZPuZ2c8=
+		VCYlPGJtZBGzx1ECWkytwvpRPe4=
 		</data>
-		<key>Resources/options24x24.png</key>
+		<key>Resources/rightArrow@2x.png</key>
 		<data>
-		F1Aftv0jEb1pHLqnGP/wqW/mLFc=
+		DzOO94dS59SHpSi+ULwDG3+5yKw=
 		</data>
-		<key>Resources/refresh00.png</key>
+		<key>Resources/scale-automatically.png</key>
 		<data>
-		d9F5G5/Cg6lD4kvr8+ellgw5ASQ=
+		s+BPVcmyp9/2jcA8ZtNsGwNXg8c=
 		</data>
-		<key>Resources/refresh01.png</key>
+		<key>Resources/scale-to-100.png</key>
 		<data>
-		c+Hj/i6a9/+BdzW/JNmIM4a3JQM=
+		DvTrpiV1zOhg9nRkJmEm+nKrS+4=
 		</data>
-		<key>Resources/refresh02.png</key>
+		<key>Resources/securityBarClose@2x.png</key>
 		<data>
-		SBXj0OnxEmEya/3lCpnTRHDvP6E=
+		0mkuf8gBxsL35W17Bw3SK+BgLk0=
 		</data>
-		<key>Resources/refresh03.png</key>
+		<key>Resources/signIn@2x.png</key>
 		<data>
-		cnN7oyR/vGJkGEsOmH/ZGSaa9GA=
+		erQufkIj+24rGhESvzE5N6JRa98=
 		</data>
-		<key>Resources/refresh04.png</key>
+		<key>Resources/sortAscending@2x.png</key>
 		<data>
-		cIrD7Wm5iCDBMcjHo4K2DWmJNyE=
+		Nyu7QGvDsVSzQ32REA7IMwrvSvA=
 		</data>
-		<key>Resources/refresh05.png</key>
+		<key>Resources/sortDescending@2x.png</key>
 		<data>
-		qgoSvP660vxsGfL0poihpNKHxBM=
-		</data>
-		<key>Resources/refresh06.png</key>
-		<data>
-		DQf0KzhD33+meZ6dCWw2+gP8MFc=
-		</data>
-		<key>Resources/refresh07.png</key>
-		<data>
-		74c9bNADLW2wZ9/h+0/As1Qo0Ro=
-		</data>
-		<key>Resources/refresh08.png</key>
-		<data>
-		lDndQIU7fzPlhzEsa12Dmv9RRus=
-		</data>
-		<key>Resources/refresh09.png</key>
-		<data>
-		izpex+Scl9Q/HID6rPG3FARzwHQ=
-		</data>
-		<key>Resources/refresh10.png</key>
-		<data>
-		nLb3QxKX7uXlhUeG1cbf7iOiOHs=
-		</data>
-		<key>Resources/refresh11.png</key>
-		<data>
-		0sZKgDTf2380MOXvcMXwfA1ENp0=
-		</data>
-		<key>Resources/refresh12.png</key>
-		<data>
-		K51Yx+/ZChS8FtDHLNaX+GTk8rE=
-		</data>
-		<key>Resources/refresh13.png</key>
-		<data>
-		qdMt2qI6/CZMZ/XHX7LSqq6GnlQ=
-		</data>
-		<key>Resources/refresh14.png</key>
-		<data>
-		M9kk6vt7o5hpx6KPjakH2XlZt/U=
-		</data>
-		<key>Resources/refresh15.png</key>
-		<data>
-		ey8jE7jDiitruHXhnzEGwC41Vi8=
-		</data>
-		<key>Resources/refresh16.png</key>
-		<data>
-		Wn4PNzMfJT5M2nQ7zE6dmBFHKBw=
-		</data>
-		<key>Resources/refresh17.png</key>
-		<data>
-		awEY6Xfi98uDwwb2iYnnNjJr9zs=
-		</data>
-		<key>Resources/refreshbutton.png</key>
-		<data>
-		o8sou2MMxW42mcfR70EdEXjgAC8=
-		</data>
-		<key>Resources/refreshbuttonhover.png</key>
-		<data>
-		0jVpAbPXZyWh9lOU1wIWtqwoFyM=
-		</data>
-		<key>Resources/save.png</key>
-		<data>
-		zlzmG87P3DpqUHwU6ZJxy9Dvkms=
-		</data>
-		<key>Resources/save16x16.png</key>
-		<data>
-		L+ZG3TLNNMSe8v+WVnGYYc+RuAU=
-		</data>
-		<key>Resources/save24x24.png</key>
-		<data>
-		5IGIOVR1veY+SUrcbUeT89L1lv8=
-		</data>
-		<key>Resources/security_bar_close.png</key>
-		<data>
-		FgwrSFIW1AJHnhOBK7dpAoWQwzY=
+		31aeNQttXwtbLpsqAtEULow0O8U=
 		</data>
 		<key>Resources/spinner00.png</key>
 		<data>
@@ -418,7 +438,7 @@
 		</data>
 		<key>Resources/statusError@2x.png</key>
 		<data>
-		yXg8NR98VGoPf4D/9kQ4d7x5dwU=
+		QVmLNeTmfr/3yeQuIEOdtlnNF4I=
 		</data>
 		<key>Resources/statusInfo@2x.png</key>
 		<data>
@@ -432,44 +452,56 @@
 		<data>
 		hMonKz3g+uT5I8OfqjbKvTXGPXo=
 		</data>
-		<key>Resources/tcpConnect.png</key>
+		<key>Resources/team@2x.png</key>
 		<data>
-		8XTgAzTkHf5FmKWwio11i61IfMU=
+		TEtro6Zz8K1h6a25UU7fV7Sslck=
 		</data>
-		<key>Resources/tcpConnect@2x.png</key>
+		<key>Resources/token_delete@2x.png</key>
 		<data>
-		4LUdXTlyL0/e0UerksH1+JZrB4Y=
+		PN/rQYG6N6L8oa6brbUoXxfVVGk=
 		</data>
-		<key>Resources/tcpConnectOnline.png</key>
+		<key>Resources/token_delete_sel@2x.png</key>
 		<data>
-		jbjcDel4dDj5txJYtEieV2hhgcU=
-		</data>
-		<key>Resources/tcpConnectOnline@2x.png</key>
-		<data>
-		wPngCqvHDcF9VKWNYZAfa6AjcSo=
-		</data>
-		<key>Resources/viewerOverlay16x16.png</key>
-		<data>
-		gxlBeh8A5j7wbNTDtHKgyXVOUdc=
-		</data>
-		<key>Resources/viewerOverlay@2x.png</key>
-		<data>
-		h3So4pO2Jh/Mfc+yWuqASAu1pMU=
+		1FsEwjK1lt7Cqpg504p/z6WKmNo=
 		</data>
 		<key>Resources/vncviewer.icns</key>
 		<data>
-		ixeF7fXx4oNiCY99UhQOXATRg2M=
+		+w1XYQo7SOkXNlQVd5bVLDuLUeE=
+		</data>
+		<key>Resources/vncviewer.png</key>
+		<data>
+		D2pITVa1OEEueHZnQnmanIOLpRs=
+		</data>
+		<key>Resources/whatsnew@2x.png</key>
+		<data>
+		UCqtON66iW74KshUCieN3kqtGL8=
+		</data>
+		<key>Resources/whatsnew_de@2x.png</key>
+		<data>
+		DvsPSGw41Z+plUM4GsX82Qh7KB4=
+		</data>
+		<key>Resources/whatsnew_es@2x.png</key>
+		<data>
+		lO5Lvi3hwSQ3s5WE0LoQOvo+Psw=
+		</data>
+		<key>Resources/whatsnew_fr@2x.png</key>
+		<data>
+		IIRFdIZ12oeZdMGRTGINLTALEWY=
+		</data>
+		<key>Resources/whatsnew_pt@2x.png</key>
+		<data>
+		+O3sT60/nq+k/4IS6iLyr5OqSH8=
+		</data>
+		<key>Resources/whiteMonitor@2x.png</key>
+		<data>
+		OanopUbjT1X6utSCLpsbnsxznLg=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Resources/AboutDialog.nib/keyedobjects.nib</key>
+		<key>Resources/CloudConfig.pkg</key>
 		<data>
-		5mMD079665cFP9p67Eoe7hzBVRs=
-		</data>
-		<key>Resources/ChatView.nib/keyedobjects.nib</key>
-		<data>
-		OL/6771EwEzSR/f9MdchHFTW1LE=
+		NZ1FnQ6Lh+06XE6STfIxzVQQU4k=
 		</data>
 		<key>Resources/FTClose.png</key>
 		<data>
@@ -487,9 +519,9 @@
 		<data>
 		OgAYhU+ZvF342eSAITHLKX6KHGo=
 		</data>
-		<key>Resources/FTNotification.nib/keyedobjects.nib</key>
+		<key>Resources/FTNotification.nib</key>
 		<data>
-		bq7knMGnNnRhsBc7a5OPPMEuPxw=
+		PKNj3GWoP0UYZcCxAsITCylF5rk=
 		</data>
 		<key>Resources/FTPause.png</key>
 		<data>
@@ -515,25 +547,65 @@
 		<data>
 		3jzSzKx+1j6V5V+9mJribhrnMLM=
 		</data>
-		<key>Resources/FileTransferDialog.nib/keyedobjects.nib</key>
+		<key>Resources/FileTransferDialog.nib</key>
 		<data>
-		zNRu/2cADChaVRb5LQa0m/1ZhcM=
+		6HKRDgzXHAwx1pwPBjmytNEiBNA=
 		</data>
-		<key>Resources/PrintProgressDialog.nib/keyedobjects.nib</key>
+		<key>Resources/LICENSE_de.txt</key>
 		<data>
-		g17zdPxZ+REedah5UZEOgEEAmGo=
+		54b/CEwMFwVMubpVzhOK+l0khxM=
 		</data>
-		<key>Resources/StripesTileGreen.png</key>
+		<key>Resources/LICENSE_en.txt</key>
 		<data>
-		WureYItZZBJy9RtLKAZOahXAfOM=
+		GRMx5SSrG7lbdkaRSPBCoMgcIFc=
 		</data>
-		<key>Resources/StripesTileRed.png</key>
+		<key>Resources/LICENSE_es.txt</key>
 		<data>
-		IRAqgL+l5fZLgnM6/KQ1IJsXQKc=
+		moxRY2nrLoCR3Jbv0ZXKUuEMo58=
+		</data>
+		<key>Resources/LICENSE_fr.txt</key>
+		<data>
+		VMTtjUFxMdw056b+NS+ohMXtLmg=
+		</data>
+		<key>Resources/LICENSE_pt.txt</key>
+		<data>
+		Va42ommVyEIiPl1DKzwF2G+2WkM=
+		</data>
+		<key>Resources/PrintProgressDialog.nib</key>
+		<data>
+		/AxreiZ3+ELvM8zRCcgy971C60A=
+		</data>
+		<key>Resources/ProgressViewLogoC@2x.png</key>
+		<data>
+		KSvLfgsETEdvF6A+EfFuTbMYJZs=
+		</data>
+		<key>Resources/ProgressViewLogoN@2x.png</key>
+		<data>
+		no5ExOWAWmSIeGUtdgnAJyzXsao=
+		</data>
+		<key>Resources/ProgressViewLogoV@2x.png</key>
+		<data>
+		2jqp+aMQatmg2vd3AgX77hKYpR4=
+		</data>
+		<key>Resources/StripesTileRed@2x.png</key>
+		<data>
+		n//OAFGu9jswyZhwidqmO6os+kI=
+		</data>
+		<key>Resources/addressbook@2x.png</key>
+		<data>
+		y/xvFVsrNetYN442VUbGegtGw9U=
+		</data>
+		<key>Resources/addressbook_sel@2x.png</key>
+		<data>
+		vHCRG60eaD8UUnI5mlX5n4XtL8E=
 		</data>
 		<key>Resources/bannerStatusError@2x.png</key>
 		<data>
 		jvBVE0WhIGKNXWp3UGLec/p+gKk=
+		</data>
+		<key>Resources/bannerStatusOk@2x.png</key>
+		<data>
+		DgxggRuyko4y35ffqbtYPGq1udM=
 		</data>
 		<key>Resources/bannerStatusQuestion@2x.png</key>
 		<data>
@@ -547,89 +619,133 @@
 		<data>
 		zamX/KTKBhDIcAAJE6tI5ZkPPX4=
 		</data>
+		<key>Resources/blueMonitor@2x.png</key>
+		<data>
+		kyyaxQ6kc9rjtAiMVHGrmt46TY0=
+		</data>
+		<key>Resources/bonjour@2x.png</key>
+		<data>
+		fXfPeqmEaqnt+bP8SwPYolDBpX4=
+		</data>
+		<key>Resources/bullet1@2x.png</key>
+		<data>
+		qRYNfE5po4uoqT+2G1j+2REG7Gk=
+		</data>
+		<key>Resources/bullet2@2x.png</key>
+		<data>
+		ggPNMErYH3tHeBuD8cjgfAkVWL8=
+		</data>
+		<key>Resources/bullet3@2x.png</key>
+		<data>
+		5PdJnLAtb0Q4e3hsIDet4Rwx/W8=
+		</data>
+		<key>Resources/bullet4@2x.png</key>
+		<data>
+		nHlM35Rfl/QGeXV4koyEdmRrcmA=
+		</data>
 		<key>Resources/chatTb.png</key>
 		<data>
-		EtIu8oA9JR6cKU2MPBFoPYNFMlA=
-		</data>
-		<key>Resources/chatTb16x16.png</key>
-		<data>
-		YkSsm4Tdg8li8rfQCnkq8XGU0us=
-		</data>
-		<key>Resources/chatTb24x24.png</key>
-		<data>
-		6/fAGuVUAZUJwod4YutE7p1k/0E=
+		ba/H/9MoiM/UTCAanmAh/VvGQz8=
 		</data>
 		<key>Resources/close.png</key>
 		<data>
-		tbcb/I7zF3OMx4Lh3Hxs2AsM1lU=
-		</data>
-		<key>Resources/close16x16.png</key>
-		<data>
-		zVBtTyj81kOgykOnb6iAF4eM+jA=
-		</data>
-		<key>Resources/close24x24.png</key>
-		<data>
-		euCz410/gD0X1+jUJPSP9cjNajI=
-		</data>
-		<key>Resources/cloud.png</key>
-		<data>
-		4jECaharx4J6UBLQzQWmYMbze60=
-		</data>
-		<key>Resources/cloudOffline.png</key>
-		<data>
-		Yf+7pLWS7pLnupdhhWZ8dsJXsxs=
-		</data>
-		<key>Resources/cloudOnline.png</key>
-		<data>
-		+Yp5GIwLiGDbu2lSGGs8Ea3NErg=
+		ulWpi4ZPERY5/edqPxgxFfZnnW8=
 		</data>
 		<key>Resources/ctrlAltDel.png</key>
 		<data>
-		uC1JL/dNaOAbz0dPJ/3gURAjmt8=
+		JqoTDuyqKrg9SxzmCMRTIp9oeJg=
 		</data>
-		<key>Resources/ctrlAltDel16x16.png</key>
+		<key>Resources/downArrow@2x.png</key>
 		<data>
-		etjcVeVTLaS0Tg4OzJeJjAiN2aM=
+		MqkiND7qO8tDBveux+AOexFwJtI=
 		</data>
-		<key>Resources/ctrlAltDel24x24.png</key>
+		<key>Resources/elevateTb.png</key>
 		<data>
-		9+B+xMBiHrTXT1QzYRffzwtP5YY=
+		W5ULVnTqCfXEZcjqihqBoU5Rg3w=
+		</data>
+		<key>Resources/enter-fullScreen.png</key>
+		<data>
+		F8gADmvGe88UisGvvf6xnW+9aJc=
+		</data>
+		<key>Resources/exit-fullScreen.png</key>
+		<data>
+		oIyRurXLkdtK7TPf72EAEHfguFw=
+		</data>
+		<key>Resources/file@2x.png</key>
+		<data>
+		3gwW9Jmu+6896CqjGYulFs3EbQg=
+		</data>
+		<key>Resources/folder-noaccess@2x.png</key>
+		<data>
+		3tJg9YuSr4P6m7bqcaU7jqKzxSc=
+		</data>
+		<key>Resources/folder@2x.png</key>
+		<data>
+		4adbYheajTlOol1t5qv2G+S7z4M=
+		</data>
+		<key>Resources/fops_download@2x.png</key>
+		<data>
+		CmR7EkGMcXf6EZkwNyDt1H6ZYn0=
+		</data>
+		<key>Resources/fops_error@2x.png</key>
+		<data>
+		2IjeTDaoVwo71sdnREJ89JXunks=
+		</data>
+		<key>Resources/fops_noentry@2x.png</key>
+		<data>
+		fmdQm9lpQwsDLS2S7Rhx79aOJjw=
+		</data>
+		<key>Resources/fops_refresh@2x.png</key>
+		<data>
+		t5Qa6Mb9Diyt3lIFhpQaKzqMuOg=
+		</data>
+		<key>Resources/fops_upload@2x.png</key>
+		<data>
+		7/jd0RspFHitdRNI+nJIhC0KZcI=
+		</data>
+		<key>Resources/fops_warning@2x.png</key>
+		<data>
+		hSVkvlmAIE+hnz9eCIwAHKqqees=
 		</data>
 		<key>Resources/ftTb.png</key>
 		<data>
-		8MdoAzy/psl46gw7xKJuijPkWPU=
+		R+xHpVCtuMn7zg1SPjr8EYOyDys=
 		</data>
-		<key>Resources/ftTb16x16.png</key>
+		<key>Resources/getstarted@2x.png</key>
 		<data>
-		zz3LSwpFYCWwhKuTr88LhzMKGyY=
+		Wf8x2S1CZwu/4QHBotA1bU/77Ds=
 		</data>
-		<key>Resources/ftTb24x24.png</key>
+		<key>Resources/getstarted_de@2x.png</key>
 		<data>
-		ECLr0wlh6r/pTK8sZBQG8hc4Gnw=
+		moJtYcwjAFfmhoq1aZ67I42gXB4=
 		</data>
-		<key>Resources/fullScreen.png</key>
+		<key>Resources/getstarted_es@2x.png</key>
 		<data>
-		JQOzrYYKZAxsDK+IZjRu8uh5Jek=
+		a+t3p6cHDYwD72tksmdaOnIkzkU=
 		</data>
-		<key>Resources/fullScreen16x16.png</key>
+		<key>Resources/getstarted_fr@2x.png</key>
 		<data>
-		LkwgxjAXxHzm65vTv2WyXTy8Vlw=
+		3nGLb9hJWNC+FURPHsKcXxwJj10=
 		</data>
-		<key>Resources/fullScreen24x24.png</key>
+		<key>Resources/getstarted_pt@2x.png</key>
 		<data>
-		361KL4wRPtHMagGvgYJ8YBlJyd4=
+		LJAskUXqhtSYWIXKcx9g5peKV2A=
+		</data>
+		<key>Resources/greyMonitor@2x.png</key>
+		<data>
+		8/1gdcXeLQKlO41bqO1gzL3D6Ko=
+		</data>
+		<key>Resources/helv15.gz</key>
+		<data>
+		t22caRKx+S9o4JA/g2Wjtb4xZKs=
+		</data>
+		<key>Resources/helv16.gz</key>
+		<data>
+		wh79sWmc4lS6ed/HMItP+olsh1c=
 		</data>
 		<key>Resources/info.png</key>
 		<data>
-		pKea2zVQMRFLwySJyzx+OX+yiWQ=
-		</data>
-		<key>Resources/info16x16.png</key>
-		<data>
-		xnfNEdl8m0TGZZ+5Ku1lMp37K1w=
-		</data>
-		<key>Resources/info24x24.png</key>
-		<data>
-		PKkuVTh5/K9QcJADfIjW65nm51w=
+		/RoplMLUsPXY8i5itbyXo2nUUFA=
 		</data>
 		<key>Resources/infoframe_default@2x.png</key>
 		<data>
@@ -637,7 +753,7 @@
 		</data>
 		<key>Resources/infoframe_error@2x.png</key>
 		<data>
-		M9+aphHS0/bCPSoHGP7/AGtl5bs=
+		FGcrvjd0eY8jJ+X9fP7L/JWPMm4=
 		</data>
 		<key>Resources/infoframe_locked@2x.png</key>
 		<data>
@@ -649,7 +765,7 @@
 		</data>
 		<key>Resources/infoframe_preference@2x.png</key>
 		<data>
-		7xVZqI08jH2H7xlmhsJXShnqneE=
+		z57N9tb50vVpB8BNlVdFY08PQnA=
 		</data>
 		<key>Resources/infoframe_success@2x.png</key>
 		<data>
@@ -659,125 +775,65 @@
 		<data>
 		SQCUGFCus75E5ML89NGJqemjmGU=
 		</data>
-		<key>Resources/new.png</key>
+		<key>Resources/is_session_btn@2x.png</key>
 		<data>
-		90oC12Ft9aScG9kCBZioRir1108=
+		oIxCXJa8jkT6yFWSVlIH6dSb2h0=
 		</data>
-		<key>Resources/new16x16.png</key>
+		<key>Resources/label_fb@2x.png</key>
 		<data>
-		j/0WauYHRGZs+GTTuhg7dSCNhkY=
+		moUnxfBj5wNOJTg84TFw4CIfIoE=
 		</data>
-		<key>Resources/new24x24.png</key>
+		<key>Resources/label_fb_sel@2x.png</key>
 		<data>
-		xbAylNq/MmK3s/YcnPFgQVcoU08=
+		X6FIRp8rQMgb/ADNUI/OlPZPf8I=
+		</data>
+		<key>Resources/langDescs.txt</key>
+		<data>
+		6CoE5Q6LVo4xwD1lJDILPVcSYnU=
+		</data>
+		<key>Resources/langs.txt</key>
+		<data>
+		wj4pWRD6fqAExH09L839E5KzTFk=
+		</data>
+		<key>Resources/on_demand_vwrlogo@2x.png</key>
+		<data>
+		MtfHHH0U/LB/jxohW1U5wJPk7IE=
 		</data>
 		<key>Resources/options.png</key>
 		<data>
-		RfHraUTuKEeecxh6nxe+7+tj28o=
+		CDfg22Sm53gWdAwVXc/tqoryYfI=
 		</data>
-		<key>Resources/options16x16.png</key>
+		<key>Resources/rebootTb.png</key>
 		<data>
-		Utm/vs/fajK37fw1ZnjTZPuZ2c8=
+		VCYlPGJtZBGzx1ECWkytwvpRPe4=
 		</data>
-		<key>Resources/options24x24.png</key>
+		<key>Resources/rightArrow@2x.png</key>
 		<data>
-		F1Aftv0jEb1pHLqnGP/wqW/mLFc=
+		DzOO94dS59SHpSi+ULwDG3+5yKw=
 		</data>
-		<key>Resources/refresh00.png</key>
+		<key>Resources/scale-automatically.png</key>
 		<data>
-		d9F5G5/Cg6lD4kvr8+ellgw5ASQ=
+		s+BPVcmyp9/2jcA8ZtNsGwNXg8c=
 		</data>
-		<key>Resources/refresh01.png</key>
+		<key>Resources/scale-to-100.png</key>
 		<data>
-		c+Hj/i6a9/+BdzW/JNmIM4a3JQM=
+		DvTrpiV1zOhg9nRkJmEm+nKrS+4=
 		</data>
-		<key>Resources/refresh02.png</key>
+		<key>Resources/securityBarClose@2x.png</key>
 		<data>
-		SBXj0OnxEmEya/3lCpnTRHDvP6E=
+		0mkuf8gBxsL35W17Bw3SK+BgLk0=
 		</data>
-		<key>Resources/refresh03.png</key>
+		<key>Resources/signIn@2x.png</key>
 		<data>
-		cnN7oyR/vGJkGEsOmH/ZGSaa9GA=
+		erQufkIj+24rGhESvzE5N6JRa98=
 		</data>
-		<key>Resources/refresh04.png</key>
+		<key>Resources/sortAscending@2x.png</key>
 		<data>
-		cIrD7Wm5iCDBMcjHo4K2DWmJNyE=
+		Nyu7QGvDsVSzQ32REA7IMwrvSvA=
 		</data>
-		<key>Resources/refresh05.png</key>
+		<key>Resources/sortDescending@2x.png</key>
 		<data>
-		qgoSvP660vxsGfL0poihpNKHxBM=
-		</data>
-		<key>Resources/refresh06.png</key>
-		<data>
-		DQf0KzhD33+meZ6dCWw2+gP8MFc=
-		</data>
-		<key>Resources/refresh07.png</key>
-		<data>
-		74c9bNADLW2wZ9/h+0/As1Qo0Ro=
-		</data>
-		<key>Resources/refresh08.png</key>
-		<data>
-		lDndQIU7fzPlhzEsa12Dmv9RRus=
-		</data>
-		<key>Resources/refresh09.png</key>
-		<data>
-		izpex+Scl9Q/HID6rPG3FARzwHQ=
-		</data>
-		<key>Resources/refresh10.png</key>
-		<data>
-		nLb3QxKX7uXlhUeG1cbf7iOiOHs=
-		</data>
-		<key>Resources/refresh11.png</key>
-		<data>
-		0sZKgDTf2380MOXvcMXwfA1ENp0=
-		</data>
-		<key>Resources/refresh12.png</key>
-		<data>
-		K51Yx+/ZChS8FtDHLNaX+GTk8rE=
-		</data>
-		<key>Resources/refresh13.png</key>
-		<data>
-		qdMt2qI6/CZMZ/XHX7LSqq6GnlQ=
-		</data>
-		<key>Resources/refresh14.png</key>
-		<data>
-		M9kk6vt7o5hpx6KPjakH2XlZt/U=
-		</data>
-		<key>Resources/refresh15.png</key>
-		<data>
-		ey8jE7jDiitruHXhnzEGwC41Vi8=
-		</data>
-		<key>Resources/refresh16.png</key>
-		<data>
-		Wn4PNzMfJT5M2nQ7zE6dmBFHKBw=
-		</data>
-		<key>Resources/refresh17.png</key>
-		<data>
-		awEY6Xfi98uDwwb2iYnnNjJr9zs=
-		</data>
-		<key>Resources/refreshbutton.png</key>
-		<data>
-		o8sou2MMxW42mcfR70EdEXjgAC8=
-		</data>
-		<key>Resources/refreshbuttonhover.png</key>
-		<data>
-		0jVpAbPXZyWh9lOU1wIWtqwoFyM=
-		</data>
-		<key>Resources/save.png</key>
-		<data>
-		zlzmG87P3DpqUHwU6ZJxy9Dvkms=
-		</data>
-		<key>Resources/save16x16.png</key>
-		<data>
-		L+ZG3TLNNMSe8v+WVnGYYc+RuAU=
-		</data>
-		<key>Resources/save24x24.png</key>
-		<data>
-		5IGIOVR1veY+SUrcbUeT89L1lv8=
-		</data>
-		<key>Resources/security_bar_close.png</key>
-		<data>
-		FgwrSFIW1AJHnhOBK7dpAoWQwzY=
+		31aeNQttXwtbLpsqAtEULow0O8U=
 		</data>
 		<key>Resources/spinner00.png</key>
 		<data>
@@ -877,7 +933,7 @@
 		</data>
 		<key>Resources/statusError@2x.png</key>
 		<data>
-		yXg8NR98VGoPf4D/9kQ4d7x5dwU=
+		QVmLNeTmfr/3yeQuIEOdtlnNF4I=
 		</data>
 		<key>Resources/statusInfo@2x.png</key>
 		<data>
@@ -891,33 +947,49 @@
 		<data>
 		hMonKz3g+uT5I8OfqjbKvTXGPXo=
 		</data>
-		<key>Resources/tcpConnect.png</key>
+		<key>Resources/team@2x.png</key>
 		<data>
-		8XTgAzTkHf5FmKWwio11i61IfMU=
+		TEtro6Zz8K1h6a25UU7fV7Sslck=
 		</data>
-		<key>Resources/tcpConnect@2x.png</key>
+		<key>Resources/token_delete@2x.png</key>
 		<data>
-		4LUdXTlyL0/e0UerksH1+JZrB4Y=
+		PN/rQYG6N6L8oa6brbUoXxfVVGk=
 		</data>
-		<key>Resources/tcpConnectOnline.png</key>
+		<key>Resources/token_delete_sel@2x.png</key>
 		<data>
-		jbjcDel4dDj5txJYtEieV2hhgcU=
-		</data>
-		<key>Resources/tcpConnectOnline@2x.png</key>
-		<data>
-		wPngCqvHDcF9VKWNYZAfa6AjcSo=
-		</data>
-		<key>Resources/viewerOverlay16x16.png</key>
-		<data>
-		gxlBeh8A5j7wbNTDtHKgyXVOUdc=
-		</data>
-		<key>Resources/viewerOverlay@2x.png</key>
-		<data>
-		h3So4pO2Jh/Mfc+yWuqASAu1pMU=
+		1FsEwjK1lt7Cqpg504p/z6WKmNo=
 		</data>
 		<key>Resources/vncviewer.icns</key>
 		<data>
-		ixeF7fXx4oNiCY99UhQOXATRg2M=
+		+w1XYQo7SOkXNlQVd5bVLDuLUeE=
+		</data>
+		<key>Resources/vncviewer.png</key>
+		<data>
+		D2pITVa1OEEueHZnQnmanIOLpRs=
+		</data>
+		<key>Resources/whatsnew@2x.png</key>
+		<data>
+		UCqtON66iW74KshUCieN3kqtGL8=
+		</data>
+		<key>Resources/whatsnew_de@2x.png</key>
+		<data>
+		DvsPSGw41Z+plUM4GsX82Qh7KB4=
+		</data>
+		<key>Resources/whatsnew_es@2x.png</key>
+		<data>
+		lO5Lvi3hwSQ3s5WE0LoQOvo+Psw=
+		</data>
+		<key>Resources/whatsnew_fr@2x.png</key>
+		<data>
+		IIRFdIZ12oeZdMGRTGINLTALEWY=
+		</data>
+		<key>Resources/whatsnew_pt@2x.png</key>
+		<data>
+		+O3sT60/nq+k/4IS6iLyr5OqSH8=
+		</data>
+		<key>Resources/whiteMonitor@2x.png</key>
+		<data>
+		OanopUbjT1X6utSCLpsbnsxznLg=
 		</data>
 	</dict>
 	<key>rules</key>

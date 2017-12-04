@@ -1,0 +1,478 @@
+ACUERDO DE LICENCIA DE USUARIO FINAL DE VNC CONNECT
+
+PARA INSTALAR CUALQUIER PARTE DEL SOFTWARE (SEGÚN SE DEFINE MÁS
+ADELANTE) Y/U OBTENER LOS SERVICIOS (SEGÚN SE DEFINEN MÁS
+ADELANTE) DE REALVNC, PRIMERO DEBE ACEPTAR LAS CONDICIONES
+GENERALES DEL PRESENTE ACUERDO. AL UTILIZAR CUALQUIER PARTE O LA
+TOTALIDAD DEL SOFTWARE, USTED ACEPTA TODAS LAS CONDICIONES
+GENERALES DEL PRESENTE ACUERDO. USTED ACEPTA QUE ESTE ACUERDO
+PUEDA EJECUTARSE COMO CUALQUIER ACUERDO NEGOCIADO POR ESCRITO
+FIRMADO POR USTED. SI NO ACEPTA, NO INSTALE NI UTILICE NINGUNA
+PARTE DEL SOFTWARE. AL INSTALAR CUALQUIER VERSIÓN ACTUALIZADA DEL
+SOFTWARE QUE PUEDA ESTAR DISPONIBLE, USTED ACEPTA QUE LAS
+CONDICIONES DEL PRESENTE ACUERDO SE APLIQUEN A DICHO SOFTWARE
+ACTUALIZADO. REALVNC LIMITED («REALVNC») PUEDE MODIFICAR ESTAS
+CONDICIONES GENERALES EN CUALQUIER MOMENTO. AL INSTALAR CUALQUIER
+VERSIÓN ACTUALIZADA DEL SOFTWARE QUE PUEDA ESTAR DISPONIBLE,
+USTED ACEPTA QUE LAS CONDICIONES MODIFICADAS DEL PRESENTE ACUERDO
+SE APLIQUEN A DICHO SOFTWARE ACTUALIZADO.
+
+
+1. DEFINICIONES
+
+   En el presente Acuerdo:
+
+   «Software de implantación» se refiere a herramientas y
+   servicios de implantación disponibles en el Sitio web, lo que
+   incluye la documentación, las actualizaciones, las versiones
+   modificadas y las copias del Software de implantación.
+
+   «Escritorio» se refiere a una interfaz gráfica de usuario, ya
+   sea accesible a través de una consola conectada al Servidor, a
+   través del Software o por cualquier medio similar.
+
+   «Acceso a dispositivo» se refiere a una Suscripción doméstica,
+   una Suscripción profesional o una Suscripción de empresa que
+   da derecho al uso del software Server o según se describa de
+   otro modo en el Sitio web.
+
+   «Usuario final» se refiere a cualquier persona que descargue,
+   ejecute o utilice el software Instant Support en su servidor
+   con el fin de permitir el acceso remoto a su escritorio por
+   parte de un Técnico.
+
+   «Suscripción de empresa» se refiere a un derecho que permite
+   la conectividad y la funcionalidad avanzada según se describe
+   en el Sitio web.
+
+   «Suscripción doméstica» se refiere a un derecho que permite la
+   conectividad y la funcionalidad básica para uso exclusivamente
+   no comercial según se describe en el Sitio web.
+
+   «Servidor» se refiere al ordenador en el que se instalará o
+   ejecutará el Software.
+
+   «Instant Support» se refiere a una Suscripción doméstica, una
+   Suscripción profesional o una Suscripción de empresa que da
+   derecho al uso del software Instant Support o según se
+   describa de otro modo en el Sitio web.
+
+   «Software Instant Support» se refiere a Instant Support
+   Application 1.0 o versiones posteriores de los programas
+   disponibles en el Sitio web, incluida la documentación, las
+   actualizaciones, las versiones modificadas y de marca y las
+   copias del software Instant Support.
+
+   «Suscripción profesional» se refiere a un derecho que permite
+   la conectividad y la funcionalidad mejorada según se describe
+   en el Sitio web.
+
+   «Software Server» se refiere a VNC Server Version 6.0 o
+   versiones posteriores de los programas disponibles en el Sitio
+   web, lo que incluye la documentación, las actualizaciones, las
+   versiones modificadas y las copias del software Server.
+
+   «Servicios» se refiere a los servicios de soporte que se
+   estipulan en la cláusula 7.
+
+   «Software» se refiere al software Server, el software Viewer,
+   el Software de implantación y/o el software Instant Support.
+
+   «Suscripción» se refiere a una suscripción comprada por o para
+   usted y/u obtenida de RealVNC que habilita el Software.
+
+   «Cuota de suscripción» se refiere a las tarifas abonadas por
+   una Suscripción según figura en el Sitio web.
+
+   «Técnico» se refiere a una persona designada autorizada por
+   usted para realizar conexiones a los Escritorios que se han
+   puesto a disposición a través del software Instant Support.
+
+   «Software Viewer» se refiere a VNC Viewer Version 6.0 o
+   versiones posteriores de los programas disponibles en el Sitio
+   web, lo que incluye la documentación, las actualizaciones, las
+   versiones modificadas y las copias del software Viewer.
+
+   «Sitio web» se refiere a https://www.realvnc.com,
+   https://www.realvnc.help y aplicaciones web asociadas.
+
+
+2. PERIODO DE PRUEBA LIMITADO
+
+   El Software puede evaluarse durante un periodo limitado de
+   prueba de licencia no exclusiva, según se estipula en el Sitio
+   web. El Software funcionará solo durante un periodo limitado
+   de tiempo. EL SOFTWARE DE PRUEBA LIMITADA SE PROPORCIONA «TAL
+   CUAL» Y SIN NINGUNA GARANTÍA O RESPONSABILIDAD DE NINGÚN TIPO
+   POR PARTE DE REALVNC PARA CON USTED.
+
+
+3. DERECHOS DE PROPIEDAD INTELECTUAL
+
+   El Software, su estructura y algoritmos, y la información
+   proporcionada con el Software o disponible en el Sitio web
+   están protegidos por derechos de autor y otras leyes de
+   propiedad intelectual, y todos los derechos de propiedad
+   intelectual en ellos pertenecen o han sido otorgados bajo
+   licencia a RealVNC. Usted no podrá reproducir, publicar,
+   transmitir, modificar, crear trabajos derivados ni mostrar
+   públicamente el Software ni ninguna parte del mismo. Queda
+   expresamente prohibido copiar, almacenar o usar el Software de
+   forma distinta a la permitida en el presente Acuerdo, a menos
+   que obtenga la autorización previa por escrito de RealVNC.
+
+
+4. USOS PERMITIDOS Y PROHIBIDOS
+
+4.1 Usted necesita una Suscripción para cada Escritorio al que se
+    acceda utilizando el software Server y para cada Técnico que
+    pueda acceder a los Escritorios a los que se pueda acceder
+    mediante el software Instant Support.
+
+4.2 Su uso del Software (o de cualquier parte del mismo) estará
+    sujeto al cumplimiento por su parte de lo siguiente:
+
+4.2.1 usted no podrá alquilar, arrendar ni transferir de otro
+      modo el Software (ni ninguna parte del mismo) ni permitir
+      que se copie, salvo cuando esté expresamente permitido por
+      el presente Acuerdo. A menos que lo permita la ley, usted
+      no podrá modificar, aplicar ingeniería inversa, descompilar
+      o desmontar el Software ni utilizar la información
+      confidencial de RealVNC contenida en el Software o derivada
+      del mismo para desarrollar o comercializar cualquier
+      software que sea esencialmente similar en su función o
+      expresión a cualquier parte del Software;
+
+4.2.2 usted debe tratar el código fuente del Software como
+      información confidencial de RealVNC;
+
+4.2.3 se le prohíbe expresamente sublicenciar las licencias
+      otorgadas a usted de conformidad con las cláusulas 4.3, 5.2
+      y 6.2; y
+
+4.2.4 deberá cumplir en todo momento las restricciones impuestas
+      a su uso del Software.
+
+4.3 Por el presente, RealVNC, por cuenta propia, de sus filiales
+    y cualquier otorgante de licencia, le concede una licencia no
+    exclusiva, mundial e intransferible para instalar y utilizar
+    el software Viewer para su uso personal o para el uso interno
+    de su empresa u organización. Queda expresamente prohibido
+    transferir o distribuir el software Viewer en cualquier
+    formato, en parte o en su totalidad, para la venta, para uso
+    comercial o para cualquier fin ilícito.
+
+4.4 El software Viewer solo está garantizado y soportado en la
+    medida en que se utilice junto con una copia autorizada del
+    software Server, del software Instant Support o de cualquier
+    otro producto Server de RealVNC expresamente admisibles para
+    su uso con el software Viewer.
+
+4.5 Las licencias otorgadas de conformidad con las cláusulas 4.3,
+    5.2 y 6.2 serán válidas durante el periodo de duración de
+    cualquier Suscripción. La duración de cada Suscripción figura
+    en el Sitio web.
+
+
+5. ACCESO A DISPOSITIVOS
+
+5.1 Cuando su Suscripción incluya Acceso a dispositivo, se
+    aplicarán los términos de esta cláusula 5.
+
+5.2 Por el presente, RealVNC, por cuenta propia, de sus filiales
+    y cualquier otorgante de licencia, le concede una licencia no
+    exclusiva, mundial e intransferible para instalar y utilizar
+    el software Server hasta el número de Escritorios máximos
+    para los que su Suscripción sea válida. Si se trata de una
+    Suscripción doméstica, el software Server solo puede ser
+    utilizado para fines privados y no comerciales. En el caso de
+    una Suscripción profesional o una Suscripción de empresa, el
+    software Server también podrá utilizarse para fines internos
+    de su empresa u organización en Servidores propiedad de su
+    empresa u organización.
+
+5.3 Usted podrá hacer tantas copias del software Server como
+    permita su Suscripción y utilizarlo para instalar el software
+    Server en sus Servidores. Queda expresamente prohibido
+    transferir o distribuir el software Server en cualquier
+    formato, en parte o en su totalidad, para la venta, para uso
+    comercial o para cualquier fin ilícito.
+
+5.4 Si su suscripción es una Suscripción de empresa, por el
+    presente, RealVNC, por cuenta propia, de sus filiales y
+    cualquier otorgante de licencia, le concede una licencia no
+    exclusiva, mundial e intransferible para instalar y utilizar
+    el Software de implantación para fines internos de su empresa
+    u organización en Servidores propiedad de su empresa u
+    organización.
+
+5.5 Usted podrá hacer tantas copias del Software de implantación
+    como permita su Suscripción y utilizarlo para instalar el
+    software Server en sus Servidores. Queda expresamente
+    prohibido transferir o distribuir el Software de implantación
+    en cualquier formato, en parte o en su totalidad, para la
+    venta, para uso comercial o para cualquier fin ilícito.
+
+
+6. INSTANT SUPPORT
+
+6.1 Cuando su Suscripción incluya Instant Support, se aplicarán
+    los términos de la presente cláusula 6.
+
+6.2 Con sujeción al cumplimiento por su parte de la cláusula 6.3,
+    RealVNC, por cuenta propia, de sus filiales y cualquier
+    otorgante de licencia, le concede una licencia no exclusiva,
+    mundial e intransferible para usar y poner a disposición de
+    los Usuarios finales el software Instant Support con el fin
+    de permitir que sus Técnicos se conecten de forma remota al
+    Escritorio del Usuario final.
+
+6.3 Su uso del software Instant Support está sujeto a lo
+    siguiente:
+
+6.3.1 usted se asegurará contractualmente de que su personal, los
+      Usuarios finales y cualquier tercero al que permita directa
+      o indirectamente utilizar el software Instant Support lo
+      haga de conformidad con el presente Acuerdo y la
+      legislación aplicable;
+
+6.3.2 sin perjuicio de lo establecido en la cláusula 6.3.1, usted
+      será en todo momento responsable del uso del software
+      Instant Support por parte de su personal, los Usuarios
+      finales y cualquier tercero al que permita directa o
+      indirectamente utilizar el software Instant Support;
+
+6.3.3 cada Técnico deberá mantener credenciales seguras para el
+      uso que realice del Software y no deberá compartir dichas
+      credenciales con ninguna otra persona.
+
+
+7. SERVICIOS DE SOPORTE
+
+7.1 RealVNC pondrá el Software a su disposición inmediatamente
+    después de la confirmación de la compra de una Suscripción
+    profesional o una Suscripción de empresa.
+
+7.2 Durante la vigencia del presente Acuerdo, siempre que se
+    hayan pagado todas las Cuotas de suscripción correspondientes
+    exigibles, RealVNC le proporcionará los siguientes Servicios
+    en relación con el Software, de conformidad con las
+    condiciones generales del presente Acuerdo:
+
+7.2.1 siempre que notifique de inmediato a RealVNC cualquier
+      defecto material en el Software (cualquier descarga
+      dañada), RealVNC hará todo lo razonablemente posible, con
+      sujeción a las disposiciones siguientes, para resolver el
+      problema y le proporcionará una versión corregida tan
+      pronto como sea posible tras recibir el aviso; o
+
+7.2.2 las actualizaciones o mejoras del Software publicadas por
+      RealVNC estarán disponibles en el Sitio web.
+
+7.3 Los Servicios no incluyen la corrección de ningún defecto
+    debido a:
+
+7.3.1 cualquier combinación con o inclusión del Software en
+      cualquier programa informático, equipo o dispositivo que no
+      se encuentren en la lista autorizada que figura en el Sitio
+      web;
+
+7.3.2 no le proporcione a RealVNC una descripción suficientemente
+      detallada del defecto que permita a RealVNC identificar el
+      defecto y prestar los Servicios; o
+
+7.3.3 cualquier uso u funcionamiento indebidos o no autorizados
+      del Software.
+
+7.4 Si un defecto no puede arreglarse en un tiempo razonable, su
+    único y exclusivo recurso será que RealVNC, a su entera
+    discreción:
+
+7.4.1 sustituya el Software; o
+
+7.4.2 le reembolse una cantidad igual a la cuota de suscripción
+      prorrateada correspondiente a la duración restante de la
+      Suscripción.
+
+7.5 Los Servicios permanecerán vigentes durante el periodo de
+    Suscripción elegido desde el inicio de la Suscripción y
+    podrán proseguir mediante la renovación de la Suscripción en
+    cualquier momento. Los Servicios se renovarán automáticamente
+    por un periodo adicional de doce meses si no cancela su
+    Suscripción antes del vencimiento del periodo de Suscripción
+    correspondiente. RealVNC se pondrá en contacto con usted por
+    correo electrónico, al menos siete días antes de la fecha de
+    vencimiento de su Suscripción, informándole de las Cuotas de
+    suscripción si se renueva su Suscripción.
+
+7.6 En el Sitio web, tiene la opción de elegir que su Suscripción
+    no se renueve automáticamente. Si elige que su Suscripción no
+    se renueve automáticamente, su Suscripción vencerá
+    automáticamente el último día de su Periodo de suscripción.
+
+
+8. CUOTAS
+
+8.1 Todas las Cuotas de suscripción, gastos u otras cantidades
+    exigibles en virtud del presente Acuerdo incluyen cualquier
+    impuesto sobre el valor añadido aplicable u otros impuestos o
+    tasas aplicables de los cuales usted será también
+    responsable. A menos que se acuerde lo contrario con cada
+    pedido, las Cuotas de suscripción (y cualquier cuota
+    subsiguiente exigible al renovar una Suscripción) se pagarán
+    a través de Internet utilizando tarjetas de crédito o débito
+    (una vez realizado el pago y remitida la confirmación del
+    pago, el Software se pondrá a su disposición de acuerdo con
+    la cláusula 7.1).
+
+8.2 Los pagos a través de Internet serán realizados por el
+    proveedor de pagos de RealVNC y estarán sujetos a sus propias
+    condiciones generales.
+
+8.3 Si su Suscripción se renueva de acuerdo con la cláusula 5.5,
+    RealVNC realizará automáticamente en la tarjeta utilizada
+    para comprar su Suscripción un cargo por el importe indicado
+    en la notificación por correo electrónico enviada de
+    conformidad con la cláusula 5.5.
+
+8.4 En caso de impago de cualquier cantidad exigible por RealVNC
+    dentro del plazo de los 14 días posteriores a la fecha de
+    vencimiento, RealVNC podrá suspender el cumplimiento de sus
+    obligaciones y/o cobrar intereses diarios a un tipo del 4 %
+    superior al tipo básico de Barclays Bank vigente en su
+    momento, acumulados trimestralmente, desde la fecha del pago
+    de esa cantidad hasta la fecha del pago efectiva.
+
+
+9. GARANTÍA LIMITADA
+
+9.1 RealVNC garantiza al licenciatario original que el Software
+    funcionará fundamentalmente de acuerdo con la documentación
+    provista durante 90 días a partir de la fecha de compra de
+    una Suscripción (el «Periodo de garantía») cuando se utilice
+    en Servidores que cumplan los requisitos mínimos de hardware
+    y software especificados en el Sitio web.
+
+9.2 La garantía limitada de funcionamiento estipulada en la
+    cláusula 9.1 se aplica únicamente es aplicable en caso de
+    notificación por escrito a RealVNC de cualquier problema
+    durante el Periodo de garantía. No es válida si el defecto
+    del Software resulta de un accidente, uso indebido,
+    aplicación incorrecta o uso inadecuado del Software o si se
+    utiliza con Servidores que no cumplen los requisitos mínimos
+    de hardware y software especificados en el Sitio web.
+
+9.3 En caso de comunicar un problema por escrito a RealVNC
+    durante el Periodo de garantía, su único y exclusivo recurso
+    será que RealVNC, a su entera discreción:
+
+9.3.1 sustituya el Software; o
+
+9.3.2 le reembolse una cantidad igual a la Cuota de suscripción.
+
+
+10. LIMITACIÓN DE RESPONSABILIDAD
+
+10.1 EXCEPTO POR LAS GARANTÍAS EXPRESAS OTORGADAS EN EL PRESENTE
+     ACUERDO, EN LA MEDIDA QUE LA LEY LO PERMITA, REALVNC
+     RENUNCIA A TODAS LAS CONDICIONES O DECLARACIONES DE
+     GARANTÍAS SOBRE EL SOFTWARE Y/O LOS SERVICIOS, YA SEAN
+     EXPRESAS O IMPLÍCITAS, INCLUIDAS, ENTRE OTRAS, LAS GARANTÍAS
+     IMPLÍCITAS DE COMERCIABILIDAD, NO INFRACCIÓN DE LOS DERECHOS
+     DE TERCEROS E IDONEIDAD PARA UN FIN ESPECÍFICO.
+
+10.2 EN LA MEDIDA QUE LA LEY LO PERMITA, REALVNC NO SERÁ
+     RESPONSABLE DE NINGUNA PÉRDIDA, COSTE O DAÑO DIRECTO,
+     INDIRECTO CONSENCUENTE O INCIDENTAL DE NINGÚN TIPO, INCLUIDO
+     EL LUCRO CESANTE O LA PÉRDIDA DE AHORROS DE COSTES QUE
+     RESULTE DE LOS SERVICIOS, EL USO DEL SOFTWARE, LA CONFIANZA
+     EN LOS DATOS PRODUCIDOS O LA INCAPACIDAD DE USAR EL SOFTWARE
+     O LA NEGLIGENCIA DE REALVNC (INCLUIDA LA PÉRDIDA O DAÑOS A
+     SUS DATOS O PROGRAMAS INFORMÁTICOS (O A LOS DE CUALQUIER
+     OTRA PERSONA)), AUN CUANDO REALVNC HAYA SIDO INFORMADA DE LA
+     POSIBILIDAD DE DICHOS DAÑOS. LA RESPONSABILIDAD DE REALVNC
+     EN VIRTUD DEL PRESENTE ACUERDO O EN RELACIÓN CON EL MISMO SE
+     LIMITARÁ AL IMPORTE PAGADO POR EL SOFTWARE, EN SU CASO.
+
+10.3 NINGUNA DE LAS CLÁSULAS INCLUIDAS EN EL PRESENTE ACUERDO
+     LIMITA LA RESPONSABILIDAD POR FALLECIMIENTO O LESIÓN
+     PERSONAL QUE SE DERIVE DE LA NEGLIGENCIA O LA DECLARACIÓN
+     FALSA DE UNA DE LAS PARTES.
+
+
+11. CONTROL DE EXPORTACIÓN
+
+    Estados Unidos y otros países controlan la exportación de
+    Software e información. Usted es responsable del cumplimiento
+    de la legislación de su jurisdicción local relativa a la
+    importación, exportación o reexportación del Software, y
+    acepta cumplir dichas restricciones y no exportar o
+    reexportar el Software en los casos en que esté prohibido. Al
+    descargar el Software, usted acepta que no es una persona o
+    entidad para la que dicha exportación está prohibida. RealVNC
+    es una sociedad anónima registrada en Inglaterra y Gales.
+
+
+12. VIGENCIA Y RESCISIÓN
+
+12.1 La presente licencia permanecerá vigente durante el periodo
+     de duración de su Suscripción (y cualquier renovación de
+     Suscripción posterior), a menos y hasta que sea rescindida
+     por usted de acuerdo con la cláusula 12.2, o por parte de
+     RealVNC mediante un aviso por correo electrónico, si
+     considera razonablemente que usted ha incumplido una
+     condición esencial del presente Acuerdo.
+
+12.2 Usted puede rescindir su Suscripción en cualquier momento
+     mediante notificación por escrito a RealVNC. La rescisión de
+     su Suscripción por su parte o por parte de RealVNC no le
+     dará derecho a ningún reembolso por cualquier parte no
+     vencida de su Periodo de suscripción (oportunamente renovada
+     o ampliada).
+
+12.3 En ese caso, deberá eliminar y destruir todas las copias del
+     Software en su posesión y control, y sobrescribir cualquier
+     memoria electrónica o ubicación de alojamiento que contenga
+     el Software.
+
+
+13. CONDICIONES GENERALES
+
+13.1 La interpretación, validez y cumplimiento del presente
+     Acuerdo se regirán en todos los aspectos por la legislación
+     inglesa, y las Partes acuerdan someterse a la jurisdicción
+     no exclusiva de los tribunales ingleses.
+
+13.2 Si alguna disposición del presente Acuerdo fuese declarada
+     nula por cualquier tribunal con jurisdicción competente, la
+     nulidad de dicha disposición no afectará a la validez de las
+     disposiciones restantes del presente Acuerdo, que
+     permanecerán en pleno vigor y efecto.
+
+13.3 A pesar de cualquier otra disposición contenida en el
+     presente Acuerdo, ninguna de las partes será responsable de
+     cualquier retraso en el cumplimiento de sus obligaciones en
+     virtud del presente Acuerdo si dicho retraso obedece a
+     circunstancias fuera de su control razonable (incluyendo,
+     sin limitación, cualquier retraso causado por una acción u
+     omisión de la otra parte) y la parte afectada tendrá derecho
+     a una ampliación razonable del plazo para el cumplimiento de
+     sus obligaciones.
+
+13.4 Ninguna renuncia a cualquier término del presente Acuerdo se
+     considerará una renuncia adicional o continua de dicho
+     término ni de cualquier otro.
+
+13.5 Usted no podrá asignar, subcontratar, otorgar sublicencias
+     ni transferir de otro modo ninguno de sus derechos y
+     obligaciones en virtud del presente Acuerdo. RealVNC podrá
+     ceder parte o la totalidad de los beneficios y obligaciones
+     en virtud del presente Acuerdo a cualquier empresa filial.
+
+13.6 El presente Acuerdo constituye el Acuerdo completo entre
+     usted y RealVNC en relación con la provisión del Software o
+     los Servicios.
+
+
+Versión 4.0a. Octubre de 2017
+

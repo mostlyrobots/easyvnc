@@ -10,6 +10,7 @@ from setuptools import setup
 APP = ['EasyVNC.py']
 DATA_FILES = []
 OPTIONS = {'argv_emulation': False, 'iconfile': 'icons/EasyVNC.icns'}
+#OPTIONS['plist'] = {'LSMinimumSystemVersion': '10.9'} 
 
 setup(
     app=APP,

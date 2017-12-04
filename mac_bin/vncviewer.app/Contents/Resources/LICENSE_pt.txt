@@ -1,0 +1,478 @@
+CONTRATO DE LICENÇA DE USUÁRIO FINAL DO VNC CONNECT
+
+A FIM DE INSTALAR QUALQUER PARTE DO SOFTWARE (CONFORME DEFINIDO
+ABAIXO) E/OU MANTER OS SERVIÇOS (CONFORME DEFINIDO ABAIXO) DA
+REALVNC, PRIMEIRAMENTE, VOCÊ DEVE ACEITAR OS TERMOS E CONDIÇÕES
+DESTE CONTRATO. AO UTILIZAR QUALQUER PARTE DO SOFTWARE, VOCÊ
+ACEITA TODOS OS TERMOS E CONDIÇÕES DESTE CONTRATO. VOCÊ CONCORDA
+QUE ESTE CONTRATO TEM O MESMO VIGOR DE QUALQUER CONTRATO
+NEGOCIADO POR ESCRITO E ASSINADO POR VOCÊ. SE NÃO CONCORDAR, NÃO
+INSTALE NEM UTILIZE NENHUMA PARTE DO SOFTWARE. AO INSTALAR
+QUALQUER VERSÃO ATUALIZADA DO SOFTWARE QUE POSSA VIR A SER
+DISPONIBILIZADA, VOCÊ ACEITA QUE OS TERMOS DESTE CONTRATO TAMBÉM
+VALEM PARA ESSE SOFTWARE ATUALIZADO. A REALVNC LIMITED
+(“REALVNC”) PODE MODIFICAR ESTES TERMOS E CONDIÇÕES A QUALQUER
+MOMENTO. AO INSTALAR QUALQUER VERSÃO ATUALIZADA DO SOFTWARE QUE
+POSSA VIR A SER DISPONIBILIZADA, VOCÊ ACEITA QUE OS TERMOS
+MODIFICADOS DESTE CONTRATO TAMBÉM VALEM PARA ESSE SOFTWARE
+ATUALIZADO.
+
+
+1. DEFINIÇÕES
+
+   Neste Contrato:
+
+   “Software de Implantação” refere-se aos serviços e ferramentas
+   de implantação disponíveis no Site, incluindo documentos,
+   atualizações, versões modificadas e cópias do Software de
+   Implantação.
+
+   “Área de Trabalho” refere-se a uma interface gráfica do
+   usuário, seja ela acessada por meio de um painel ligado ao
+   Host, por meio do Software ou por qualquer outro meio.
+
+   “Acesso a Dispositivos” refere-se a uma Assinatura Home,
+   Professional ou Enterprise que permite a utilização do
+   Software de Servidor ou conforme descrito no Site.
+
+   “Usuário Final” refere-se a qualquer pessoa que baixar,
+   executar ou utilizar o Software de Suporte Instantâneo em seu
+   Host com o objetivo de habilitar o acesso remoto de um Técnico
+   à sua Área de Trabalho.
+
+   “Assinatura Enterprise” refere-se a uma assinatura que permite
+   a conectividade e o uso de funções avançadas, conforme
+   descrito no Site.
+
+   “Assinatura Home” refere-se a uma assinatura que permite a
+   conectividade e o uso de funções básicas somente para uso não
+   comercial, conforme descrito no Site.
+
+   “Host” refere-se ao computador no qual o Software será
+   instalado ou executado.
+
+   “Suporte Instantâneo” refere-se a uma Assinatura Home,
+   Professional ou Enterprise que permite a utilização do
+   Software de Suporte Instantâneo ou conforme descrito no Site.
+
+   “Software de Suporte Instantâneo” refere-se ao Instant Support
+   Application 1.0 ou posterior dos programas disponibilizados no
+   Site, incluindo documentos, atualizações, versões modificadas
+   e com marca, bem como cópias do Software de Suporte
+   Instantâneo.
+
+   “Assinatura Professional” refere-se a uma assinatura que
+   permite a conectividade e o uso de funções aprimoradas, como
+   descrito no Site.
+
+   “Software de Servidor” refere-se ao VNC Server Versão 6.0 ou
+   posterior dos programas disponíveis no Site, incluindo
+   documentos, atualizações, versões modificadas e cópias do
+   Software de Servidor.
+
+   “Serviços” referem-se aos serviços de suporte definidos na
+   Cláusula 7.
+
+   “Software” refere-se ao Software de Servidor e/ou ao Software
+   de Visualização e/ou ao Software de Implantação e/ou ao
+   Software de Suporte Instantâneo.
+
+   “Assinatura” refere-se a uma assinatura adquirida para ou por
+   você e/ou obtida da RealVNC que habilita o Software.
+
+   “Taxa de Assinatura” refere-se às taxas a serem pagas por uma
+   Assinatura, conforme definido no Site.
+
+   “Técnico” refere-se a um indivíduo nomeado e autorizado por
+   você para fazer conexões com Áreas de Trabalho
+   disponibilizadas por meio do Software de Suporte Instantâneo.
+
+   “Software de Visualização” refere-se ao VNC Viewer Versão 6.0
+   ou posterior dos programas disponíveis no Site, incluindo
+   documentos, atualizações, versões modificadas e cópias do
+   Software de Visualização.
+
+   “Site” refere-se aos sites https://www.realvnc.com e
+   https://www.realvnc.help, bem como aos aplicativos Web
+   associados.
+
+
+2. PERÍODO DE AVALIAÇÃO LIMITADA
+
+   O Software pode ser avaliado por um período de licença não
+   exclusiva de avaliação limitada, conforme definido no Site.
+   Ele funcionará somente por um certo período. O SOFTWARE PARA
+   AVALIAÇÃO LIMITADA SERÁ FORNECIDO “NO ESTADO EM QUE SE
+   ENCONTRA”, SEM QUALQUER GARANTIA OU RESPONSABILIDADE POR PARTE
+   DA REALVNC.
+
+
+3. DIREITOS DE PROPRIEDADE INTELECTUAL
+
+   O Software, sua estrutura e seus algoritmos, bem como as
+   informações fornecidas com ele ou disponíveis no Site, são
+   protegidos por direitos autorais e outras leis de propriedade
+   intelectual, sendo que todos os direitos de propriedade
+   intelectual associados a eles pertencem à RealVNC ou foram-lhe
+   transferidos por licença. Você não pode reproduzir, publicar,
+   transmitir, modificar, criar trabalhos derivados nem exibir
+   publicamente o Software ou qualquer uma de suas partes. É
+   expressamente proibido copiar, armazenar ou utilizar o
+   Software de formas diferentes das permitidas nos termos deste
+   Contrato, a menos que você obtenha uma autorização prévia por
+   escrito da RealVNC.
+
+
+4. USOS PERMITIDOS E PROIBIDOS
+
+4.1 É necessário adquirir uma Assinatura para cobrir cada Área de
+    Trabalho que ficará acessível por meio do Software de
+    Servidor, bem como para cobrir cada Técnico que poderá
+    acessar as Áreas de Trabalho que o Software de Suporte
+    Instantâneo tornará acessíveis.
+
+4.2 O seu uso do Software (ou de qualquer uma de suas partes)
+    estará sujeito ao cumprimento das seguintes condições:
+
+4.2.1 você não pode alugar, arrendar nem transferir de nenhuma
+      forma o Software (ou qualquer uma de suas partes), nem
+      permitir que ele seja copiado, a menos que permitido
+      explicitamente nos termos deste Contrato. A menos que
+      permitido por lei, você não pode modificar, fazer
+      engenharia reversa, descompilar nem desmontar o Software,
+      nem usar qualquer das informações confidenciais da RealVNC
+      contidas ou derivadas do Software para desenvolver ou
+      comercializar qualquer software substancialmente semelhante
+      a qualquer parte deste Software em termos de função ou
+      expressão;
+
+4.2.2 você deve tratar o código-fonte do Software como
+      informações confidenciais da RealVNC;
+
+4.2.3 é expressamente proibido sublicenciar as licenças que lhe
+      forem concedidas nos termos das Cláusulas 4.3, 5.2 e 6.2; e
+
+4.2.4 você sempre deverá cumprir qualquer restrição que lhe for
+      imposta em relação ao uso do Software.
+
+4.3 A RealVNC, atuando em seu próprio nome, no de suas
+    subsidiárias e no de seus licenciadores, por meio deste
+    documento, concede-lhe uma licença não exclusiva,
+    internacional e intransferível para instalar e usar o
+    Software de Visualização para uso pessoal ou para uso interno
+    na sua empresa ou organização. É expressamente proibido
+    transferir ou distribuir o Software de Visualização em
+    qualquer formato, total ou parcialmente, para venda, uso
+    comercial ou qualquer outra finalidade ilícita.
+
+4.4 O Software de Visualização conta com garantia e suporte
+    somente se for usado em conjunto com uma cópia licenciada do
+    Software de Servidor, do Software de Suporte Instantâneo ou
+    qualquer outro produto de Servidor da RealVNC indicado
+    explicitamente para uso com o Software de Visualização.
+
+4.5 As licenças concedidas nos termos das Cláusulas 4.3, 5.2 e
+    6.2 serão válidas por toda a duração de qualquer Assinatura.
+    A duração de cada Assinatura é definida no Site.
+
+
+5. ACESSO A DISPOSITIVOS
+
+5.1 Se a sua Assinatura incluir Acesso a Dispositivos, valerão os
+    termos desta Cláusula 5.
+
+5.2 A RealVNC, atuando em seu próprio nome, no de suas
+    subsidiárias e no de seus licenciadores, por meio deste
+    documento, concede-lhe uma licença não exclusiva,
+    internacional e intransferível para instalar e usar o
+    Software de Servidor até o número máximo de Áreas de Trabalho
+    para o qual sua Assinatura é válida. No caso da Assinatura
+    Home, o Software de Servidor só pode ser usado para fins
+    particulares e não comerciais. No caso da Assinatura
+    Professional ou Enterprise, o Software de Servidor também
+    pode ser usado para as finalidades internas da sua empresa ou
+    organização em Hosts de propriedade da sua empresa ou
+    organização.
+
+5.3 Você pode fazer quantas cópias do Software de Servidor forem
+    permitidas pela sua Assinatura e utilizá-las para instalar o
+    Software de Servidor nos seus Hosts. É expressamente proibido
+    transferir ou distribuir o Software de Servidor em qualquer
+    formato, total ou parcialmente, para venda, uso comercial ou
+    qualquer finalidade ilícita.
+
+5.4 Se você tiver uma Assinatura Enterprise, a RealVNC, atuando
+    em seu próprio nome, no de suas subsidiárias e no de seus
+    licenciadores, por meio deste documento, concede-lhe uma
+    licença não exclusiva, internacional e intransferível para
+    instalar e usar o Software de Implantação para as finalidades
+    internas da sua empresa ou organização em Hosts de
+    propriedade da sua empresa ou organização.
+
+5.5 Você pode fazer quantas cópias do Software de Implantação
+    forem permitidas pela sua Assinatura e utilizá-las para
+    instalar o Software de Servidor nos seus Hosts. É
+    expressamente proibido transferir ou distribuir o Software de
+    Implantação em qualquer formato, total ou parcialmente, para
+    venda, uso comercial ou qualquer outra finalidade ilícita.
+
+
+6. SUPORTE INSTANTÂNEO
+
+6.1 Se a sua Assinatura incluir Suporte Instantâneo, valerão os
+    termos desta Cláusula 6.
+
+6.2 Sujeito ao cumprimento dos termos desta Cláusula 6.3, a
+    RealVNC, atuando em seu próprio nome, no de suas subsidiárias
+    e no de seus licenciadores, por meio deste documento,
+    concede-lhe uma licença não exclusiva, internacional e
+    intransferível para usar o Software de Suporte Instantâneo e
+    torná-lo disponível para Usuários Finais, com o objetivo de
+    permitir que seus Técnicos se conectem remotamente à Área de
+    Trabalho do Usuário Final.
+
+6.3 O seu uso do Software de Suporte Instantâneo está sujeito às
+    seguintes condições:
+
+6.3.1 você exigirá por contrato que sua equipe, seus Usuários
+      Finais e quaisquer terceiros a quem você conceda permissão
+      direta ou indireta para usar o Software de Suporte
+      Instantâneo utilizem-no de acordo com este Contrato e com a
+      legislação aplicável;
+
+6.3.2 não obstante o teor da Cláusula 6.3.1, você sempre será o
+      responsável pelo uso do Software de Suporte Instantâneo por
+      parte da sua equipe, de seus Usuários Finais e de quaisquer
+      terceiros a quem você conceda permissão direta ou indireta
+      para usar o Software de Suporte Instantâneo;
+
+6.3.3 todos os Técnicos devem ter credenciais seguras para
+      utilizar o Software, não devendo compartilhar essas
+      credenciais com ninguém.
+
+
+7. SERVIÇOS DE SUPORTE
+
+7.1 A RealVNC disponibilizar-lhe-á o Software assim que confirmar
+    que você adquiriu uma Assinatura Professional ou Enterprise.
+
+7.2 Durante a vigência deste Contrato, desde que todas as devidas
+    Taxas de Assinaturas cabíveis tenham sido pagas, a RealVNC
+    prestar-lhe-á os seguintes Serviços em relação ao Software,
+    de acordo com os termos e condições deste Contrato:
+
+7.2.1 desde que você notifique a RealVNC em tempo hábil sobre
+      qualquer defeito material no Software (ou seja, qualquer
+      download corrompido), a RealVNC, conforme o disposto acima,
+      fará todo o possível para corrigir o problema e fornecer
+      uma versão corrigida assim que possível após o recebimento
+      da notificação; ou
+
+7.2.2 quaisquer atualizações ou melhorias do Software publicadas
+      pela RealVNC serão disponibilizadas no Site.
+
+7.3 Os Serviços não incluem a correção de nenhum defeito
+    decorrente de:
+
+7.3.1 qualquer combinação ou inclusão do Software em qualquer
+      programa de computador, equipamento ou dispositivo que não
+      esteja na lista aprovada disponível no Site;
+
+7.3.2 uma incapacidade da sua parte de fornecer à RealVNC uma
+      descrição suficientemente detalhada do defeito para
+      permitir que a RealVNC identifique o defeito e preste os
+      Serviços; ou
+
+7.3.3 qualquer operação ou uso inadequado ou não autorizado do
+      Software.
+
+7.4 Se algum defeito não puder ser solucionado em tempo hábil,
+    seu único recurso será que a RealVNC, a seu critério
+    exclusivo:
+
+7.4.1 substitua o Software; ou
+
+7.4.2 devolva-lhe uma quantia equivalente à Taxa de Assinatura
+      proporcional à duração restante da Assinatura.
+
+7.5 Os Serviços continuarão em vigor durante todo o período de
+    Assinatura escolhido, contando a partir do início da
+    Assinatura, e podem ser continuados por meio da renovação da
+    Assinatura a qualquer momento. Os Serviços serão renovados
+    automaticamente por um período adicional de doze meses caso
+    você não cancele a sua Assinatura antes do vencimento do
+    período de Assinatura em questão. A RealVNC enviar-lhe-á uma
+    notificação por e-mail com pelo menos sete dias de
+    antecedência em relação ao vencimento da sua Assinatura. Esse
+    aviso incluirá informações relacionadas às Taxas de
+    Assinatura, caso a sua Assinatura seja renovada.
+
+7.6 Você pode optar pela renovação automática da sua Assinatura
+    no Site. Se você optar por não renovar sua Assinatura
+    automaticamente, ela será cancelada automaticamente no último
+    dia do seu período de Assinatura.
+
+
+8. TAXAS
+
+8.1 Todas as Taxas de Assinatura, despesas ou outros montantes a
+    serem pagos nos termos deste Contrato já incluem todos os
+    impostos ou outros encargos aplicáveis pelos quais você será
+    responsável. A menos que acordado de outra forma para cada
+    pedido, as Taxas de Assinatura (bem como quaisquer taxas
+    posteriores a serem pagas quando da renovação de uma
+    Assinatura) deverão ser pagas pela Internet por meio de
+    cartões de crédito ou débito (sendo que o comprovante de
+    pagamento será fornecido após o recebimento do pagamento e
+    antes que o Software lhe seja disponibilizado, nos termos da
+    Cláusula 7.1).
+
+8.2 Os pagamentos feitos pela Internet serão realizados pelo
+    provedor de pagamentos da RealVNC e estarão sujeitos aos
+    termos e condições desse provedor.
+
+8.3 Se a sua Assinatura for renovada de acordo com a Cláusula
+    5.5, a RealVNC automaticamente debitará do cartão utilizado
+    para a compra da sua Assinatura a quantia identificada na
+    notificação enviada por e-mail, conforme a Cláusula 5.5.
+
+8.4 Se alguma quantia devida à RealVNC não for paga dentro de 14
+    dias após o vencimento do prazo de pagamento, a RealVNC
+    poderá suspender o exercício de suas obrigações e/ou cobrar
+    juros diários a uma taxa de 4% acima da taxa base do Barclays
+    Bank que entra em vigor periodicamente, sendo composta
+    trimestralmente, a partir da data de vencimento do pagamento
+    dessa quantia até a data em que o pagamento for efetuado.
+
+
+9. GARANTIA LIMITADA
+
+9.1 A RealVNC garante ao licenciado original que o Software terá
+    um desempenho substancialmente equivalente ao descrito em
+    qualquer documentação que o acompanhe, por 90 dias a partir
+    da data de aquisição de uma Assinatura (o “Período de
+    Garantia”), desde que usado em Hosts que satisfaçam os
+    requisitos mínimos de hardware e software especificados no
+    Site.
+
+9.2 A garantia limitada de desempenho disposta na Cláusula 9.1
+    valerá apenas se qualquer problema for relatado por escrito à
+    RealVNC durante o Período de Garantia. Ela não terá nenhum
+    efeito se a falha do Software for decorrente de acidente,
+    violação, má aplicação ou uso inadequado do Software, ou uso
+    com Hosts que não satisfaçam os requisitos mínimos de
+    hardware e software especificados no Site.
+
+9.3 Caso um problema seja relatado por escrito à RealVNC durante
+    o Período de Garantia, seu único recurso será que a RealVNC,
+    a seu critério exclusivo:
+
+9.3.1 substitua o Software; ou
+
+9.3.2 devolva-lhe uma quantia equivalente à Taxa de Assinatura.
+
+
+10. LIMITAÇÃO DA RESPONSABILIDADE
+
+10.1 COM EXCEÇÃO DAS GARANTIAS EXPRESSAS CONCEDIDAS NESTE
+     CONTRATO, DENTRO DOS LIMITES PERMITIDOS POR LEI, A REALVNC
+     RECUSA TODAS AS CONDIÇÕES OU REPRESENTAÇÕES DE GARANTIAS
+     REFERENTES AO SOFTWARE E/OU AOS SERVIÇOS, EXPRESSAS OU
+     IMPLÍCITAS, INCLUINDO, MAS NÃO SE LIMITANDO ÀS GARANTIAS
+     IMPLÍCITAS DE COMERCIALIZAÇÃO, NÃO VIOLAÇÃO DE DIREITOS DE
+     TERCEIROS E ADEQUAÇÃO A UMA FINALIDADE ESPECÍFICA.
+
+10.2 DENTRO DOS LIMITES PERMITIDOS POR LEI, A REALVNC NÃO SE
+     RESPONSABILIZARÁ POR NENHUMA PERDA, CUSTO OU DANO DIRETO,
+     CONSEQUENCIAL, INDIRETO OU INCIDENTAL, INCLUINDO A PERDA DE
+     LUCROS OU REDUÇÃO DE CUSTOS EM DECORRÊNCIA DOS SERVIÇOS, DO
+     USO DO SOFTWARE, DEPENDÊNCIA NOS DADOS GERADOS OU
+     INCAPACIDADE DE USAR O SOFTWARE, OU NEGLIGÊNCIA DA REALVNC
+     (INCLUINDO PERDAS OU DANOS AOS SEUS DADOS OU PROGRAMAS DE
+     COMPUTADOR, OU AOS DE QUALQUER OUTRA PESSOA), MESMO QUE A
+     REALVNC TENHA SIDO AVISADA SOBRE A POSSIBILIDADE DE
+     OCORRÊNCIA DESSES DANOS. A RESPONSABILIDADE DA REALVNC, NOS
+     TERMOS DESTE CONTRATO OU VINCULADA A ELE, LIMITAR-SE-Á À
+     QUANTIA PAGA PELO SOFTWARE, SE FOR O CASO.
+
+10.3 NENHUMA PARTE DESTE CONTRATO LIMITA A RESPONSABILIDADE POR
+     MORTES OU LESÕES PESSOAIS DECORRENTES DA NEGLIGÊNCIA DE UMA
+     DAS PARTES OU DE DECLARAÇÕES FALSAS FEITAS POR UMA DAS
+     PARTES.
+
+
+11. CONTROLE DE EXPORTAÇÃO
+
+    Os Estados Unidos e outros países controlam a exportação de
+    Software e informações. Você é responsável por cumprir as
+    leis da sua jurisdição local referentes à importação,
+    exportação ou reexportação do Software, e concorda em
+    obedecer a essas restrições e não exportar nem reexportar o
+    Software quando proibido. Ao baixar o Software, você concorda
+    que não é uma pessoa ou entidade sujeita a essa proibição de
+    exportação. A RealVNC é uma sociedade limitada estabelecida
+    na Inglaterra e no País de Gales.
+
+
+12. DURAÇÃO E CANCELAMENTO
+
+12.1 Esta licença continuará em vigor por toda a duração da sua
+     Assinatura (bem como qualquer renovação posterior da
+     Assinatura), a menos e até que seja cancelada por você nos
+     termos da Cláusula 12.2 ou pela RealVNC mediante e-mail de
+     notificação enviado a você, caso haja alguma suspeita
+     plausível de que tenha havido violação de algum termo
+     material deste Contrato.
+
+12.2 Você pode cancelar a sua Assinatura a qualquer momento,
+     enviando uma notificação por escrito à RealVNC. O
+     cancelamento da sua Assinatura feito por você ou pela
+     RealVNC não lhe dará o direito de receber nenhum reembolso
+     referente à duração restante do seu período de Assinatura
+     (renovada ou prolongada regularmente).
+
+12.3 No caso acima, você deve excluir e destruir todas as cópias
+     do Software em sua posse, bem como verificar e limpar
+     qualquer memória eletrônica ou dispositivo de armazenamento
+     que contenha o Software.
+
+
+13. TERMOS GERAIS
+
+13.1 A interpretação, validade e execução deste Contrato serão
+     regidas em todos os sentidos pela legislação inglesa, sendo
+     que as Partes concordam em sujeitar-se à jurisdição não
+     exclusiva dos tribunais ingleses.
+
+13.2 Se um tribunal competente em razão da matéria julgar que
+     alguma disposição deste Contrato é inválida, isso não
+     afetará a validade das demais disposições deste Contrato,
+     que continuarão em pleno vigor e efeito.
+
+13.3 Não obstante qualquer outra parte deste Contrato, nenhuma
+     das partes será responsável por nenhum atraso no exercício
+     de suas obrigações estabelecidas por este Contrato, caso
+     esse atraso seja causado por circunstâncias além de seu
+     controle esperado (incluindo, mas sem se limitar a qualquer
+     atraso causado por uma ação ou omissão da outra parte),
+     sendo que a parte afetada terá direito a uma prolongação
+     razoável do prazo referente ao exercício de suas obrigações.
+
+13.4 Nenhuma renúncia a qualquer um dos termos deste Contrato
+     será considerada como uma renúncia adicional ou continuada
+     ao termo em questão ou a qualquer outro termo.
+
+13.5 Você não pode atribuir, subcontratar, sublicenciar nem
+     transferir nenhum dos seus direitos ou obrigações
+     estipulados por este Contrato. A RealVNC pode atribuir todos
+     ou alguns dos benefícios ou todas ou algumas de suas
+     obrigações estipuladas por este Contrato a qualquer empresa
+     afiliada.
+
+13.6 Este Contrato constitui o Contrato integral assinado entre
+     você e a RealVNC para o fornecimento do Software ou dos
+     Serviços.
+
+
+Versão 4.0a, outubro de 2017
+

@@ -19,15 +19,15 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleSignature</key>
-	<string>VNCv</string>
+	<string>????</string>
 	<key>CFBundleShortVersionString</key>
-	<string>5.2.1 (r5668)</string>
+	<string>6.17.1113 (r31799)</string>
 	<key>CFBundleVersion</key>
-	<string>5.2.1.5668</string>
+	<string>6.17.1113.31799</string>
 	<key>NSHighResolutionCapable</key>
 	<string>True</string>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2002-2014 RealVNC Ltd.</string>
+	<string>Copyright © 2002-2017 RealVNC Ltd.</string>
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
