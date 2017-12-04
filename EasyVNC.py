@@ -45,7 +45,7 @@ class MainUI(Frame):
 			self.configfile = self.homedir + '\\mvnc.cfg'
 		else:
 			self.configfile = self.homedir + '/.mvnc.cfg'
-			self.vnccommand = ['./vncviewer.app/Contents/MacOS/vncviewer']
+			self.vnccommand = [ get_script_dir() + '/vncviewer.app/Contents/MacOS/vncviewer']
 			self.username.set(os.environ.get('LOGNAME'))
 	
 		self.load()
@@ -114,7 +114,13 @@ def vnc_encode(password):
     	ctext += vnc_encode(password[8:])
     return ctext
 
-
+def get_script_dir():
+	# determine if application is a script file or frozen exe
+	if getattr(sys, 'frozen', False):
+		application_path = sys._MEIPASS
+	else:
+		application_path = os.path.dirname(os.path.abspath(__file__))
+	return application_path
 
 
 class ForwardServer (socketserver.ThreadingTCPServer):
@@ -160,7 +166,7 @@ def forward_tunnel(local_port, remote_host, remote_port, transport):
         chain_host = remote_host
         chain_port = remote_port
         ssh_transport = transport
-    ForwardServer(('', local_port), SubHander).serve_forever()
+    ForwardServer(('127.0.0.1', local_port), SubHander).serve_forever()
 
 
 def connect(event=None):
@@ -180,7 +186,6 @@ def connect(event=None):
 
 	vnccommand = app.vnccommand
 	vncargs = ' -config -'
-	#	vncargs = ' -config - -verifyid=0 -autoreconnect=1 -clientcuttext=1 -encryption=preferoff -shared=0 -uselocalcursor=1 -securitynotificationtimeout=0 -servercuttext=1 -sharefiles=1 -username=%s -warnunencrypted=0 localhost:' % (username)
 	verbose(vnccommand[0] + vncargs)
 
 	remote_vnccommand = """
@@ -259,7 +264,7 @@ run_vnc
 			t.close()
 			return
 	except Exception as e:
-		tkMessageBox.showwarning("Unhandled Exception", "An application error has occured.\n Traceback: %s " % (traceback.format_exc()))
+		tkMessageBox.showwarning("Unhandled Exception", "An application error has occured.\n Traceback: %s Dir:%s" % (traceback.format_exc(), get_script_dir()))
 		sys.exit(1)
 
 
