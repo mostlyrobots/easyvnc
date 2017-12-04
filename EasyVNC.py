@@ -46,7 +46,6 @@ class MainUI(Frame):
 		else:
 			self.configfile = self.homedir + '/.mvnc.cfg'
 			self.vnccommand = ['./vncviewer.app/Contents/MacOS/vncviewer']
-			self.vnccommand = ['./mac_bin/vncviewer.app/Contents/MacOS/vncviewer']
 			self.username.set(os.environ.get('LOGNAME'))
 	
 		self.load()
@@ -103,7 +102,7 @@ class MainUI(Frame):
 		file.write('username=%s\nhostname=%s' % (self.username.get(), self.hostname.get()))
 
 def verbose(s):
-	print(s, file=sys.stderr)
+	#print(s, file=sys.stderr)
 	pass
 
 def vnc_encode(password):
