@@ -16,5 +16,9 @@ C:\Python35\Scripts\pyinstaller.exe ^
  --workpath %EASYVNCBUILD%\EasyVNC ^
  --distpath %EASYVNCBUILD%\dist ^
  EasyVNC.spec
+
+%systemroot%\system32\xcopy.exe skel\*.* "%EASYVNCBUILD%\dist" /E /Y /I
+
+"C:\Program Files\WinZIP\WZZIP.EXE" -a -rp %HOMEPATH%\Desktop\EasyVNC-%VERSION%.zip %EASYVNCBUILD%\dist
  
-REM "C:\Program Files\WinZIP\WZZIP.EXE" -a -rp %HOMEPATH%\Desktop\EasyVNC-%VERSION%.zip %EASYVNCBUILD%\dist\EasyVNC.exe 
+"C:\Program Files (x86)\WinZip Self-Extractor\WINZIPSE.EXE" %HOMEPATH%\Desktop\EasyVNC-%VERSION%.zip -setup -t dialog.txt -st "EasyVNC Installer" -c .\setup.bat
