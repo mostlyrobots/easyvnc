@@ -6,8 +6,8 @@ echo Creating directories..
 mkdir "C:\Program Files\EasyVNC\"
 
 echo Installing EasyVNC to C:\Program Files..
-%systemroot%\system32\xcopy.exe "dist" "C:\Program Files\EasyVNC" /E /Y /I
+%systemroot%\system32\xcopy.exe "EasyVNC.exe" "C:\Program Files\EasyVNC" /E /Y /I
 
-%systemroot%\system32\xcopy.exe "dist\EasyVNC.lnk" "%HOMEDRIVE%%HOMEPATH%\Desktop\"  /Y
+%systemroot%\system32\xcopy.exe "EasyVNC.lnk" "%HOMEDRIVE%%HOMEPATH%\Desktop\"  /Y
 
-.\dist\vcredist_x86.exe /Q
+.\vcredist_x86.exe /Q
