@@ -52,12 +52,32 @@ REMOTE_VNCCOMMAND = """
 	run_vnc
 	"""
 
+class Password(str):
+	def _vnc_obfuscate(self, password):
+		"""Obfuscate a plaintext password in VNC format"""
+		# pad password up to 8 chars, truncate anything over 8
+		passpadd = (password + '\x00'*8)[:8]
+		# load the vnckey from library and change encoding to ascii
+		strkey = ''.join([ chr(x) for x in d3des.vnckey ])
+		ekey = d3des.deskey(bytearray(strkey, encoding="ascii"), False)
+		# encrypt the passpadd section from above
+		ctext = d3des.desfunc(bytearray(passpadd, encoding="ascii"), ekey)
+		# if the password was longer than 8 chars, then recurse, this will chunk the 
+		# password into 8 character obfuscated sections. versions older than 5 will ignore 8+
+		if len(password) > 8:
+			ctext += self._vnc_obfuscate(password[8:])
+		return ctext
+	def get_vnchex(self):
+		"""return the hexencoded obfuscated vnc password"""
+		return hexlify(self._vnc_obfuscate(self)).decode()
+	
 class Config():
 	def __init__(self):
 		self.remote_host = str()
 		self.homedir = os.path.expanduser("~")
 		self.scriptdir = self.get_scriptdir()
 		self.remote_port = 22
+		self.password = Password()
 		
 		vncargs = ['-config', '-']
 		
@@ -79,7 +99,7 @@ class Config():
 
 	def get_vncconfig(self, vnc_port):
 		vncconfig='Host=127.0.0.1:%s\nUsername=%s\n Password=%s\nverifyid=0\nautoreconnect=1\nclientcuttext=1\nencryption=preferoff\nshared=0\nuserlocalcursor=1\nsecuritynotificationtimeout=0\nservercuttext=1\nsharefiles=1\nwarnunencrypted=0\n'
-		return vncconfig % (vnc_port, self.username, self.get_vncpassword()) 
+		return vncconfig % (vnc_port, self.username, self.password.get_vnchex()) 
 
 	def get_scriptdir(self):
 		# determine if application is a script file or frozen exe
@@ -89,25 +109,6 @@ class Config():
 			application_path = os.path.dirname(os.path.abspath(__file__))
 		return application_path
 
-	def vnc_obfuscate(self, password):
-		"""Obfuscate a plaintext password in VNC format"""
-		# pad password up to 8 chars, truncate anything over 8
-		passpadd = (password + '\x00'*8)[:8]
-		# load the vnckey from library and change encoding to ascii
-		strkey = ''.join([ chr(x) for x in d3des.vnckey ])
-		ekey = d3des.deskey(bytearray(strkey, encoding="ascii"), False)
-		# encrypt the passpadd section from above
-		ctext = d3des.desfunc(bytearray(passpadd, encoding="ascii"), ekey)
-		# if the password was longer than 8 chars, then recurse, this will chunk the 
-		# password into 8 character obfuscated sections. versions older than 5 will ignore 8+
-		if len(password) > 8:
-			ctext += self.vnc_obfuscate(password[8:])
-		return ctext
-
-	def get_vncpassword(self):
-		"""return the hexencoded obfuscated vnc password"""
-		return hexlify(self.vnc_obfuscate(self.password)).decode()
-	
 	def get_fqdn_remote_host(self):
 		return self.remote_host + ".uchicago.edu"
 
@@ -134,9 +135,9 @@ global config
 config = Config()
 
 
-def verbose(s):
+def verbose(*s):
 	"""Wrapper function to print debug statements"""
-	#print(s, file=sys.stderr)
+	print(*s, file=sys.stderr)
 	pass
 
 def excepthook(excType, excValue, tracebackobj):
@@ -187,11 +188,9 @@ class KQDialog(QDialog):
 		sys.exit()
 
 class LoginUI(KQDialog):
-	def __init__(self, parent=None):
+	def __init__(self):
 	
-		super().__init__()
-		
-		self.parent = parent
+		KQDialog.__init__(self)
 		
 		self.username = QLineEdit()
 		self.password = QLineEdit()
@@ -252,85 +251,13 @@ class LoginUI(KQDialog):
 
 		# save the form data into the config
 		config.username = self.username.text()
-		config.password = self.password.text()
+		config.password = Password(self.password.text())
 		config.remote_host = str(self.remote_host.currentText())
-		config.save()
-
+		
 		verbose("%s@%s:%s" % (config.username, config.get_fqdn_remote_host(), config.remote_port))
 
+		self.done(0)
 
-
-		# attempt to connect TCP socket to remote host, catch exceptions and throw warnings if there are problems	
-		try:
-			sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-			sock.connect((config.get_fqdn_remote_host(), config.remote_port))
-		except Exception as e:
-			if e.errno == 11001:
-				QMessageBox.warning(self, "Connect Failed", "Could not connect because the remote_host (%s) would not resolve.\n  There may be a problem with your internet connection." % (remote_host))
-			else:
-				QMessageBox.warning(self, "Connect Failed", "SSH negotiation failed for %s: %s" % (config.get_fqdn_remote_host(), str(e)))
-			return
-
-
-		try:
-			# start a new paramiko transport over TCP socket
-			t = paramiko.Transport(sock)
-			t.start_client()
-
-			# authenticate 
-			t.auth_password(config.username, config.password)
-		
-			# a new channel on the paramiko transport layer, ssh can have lots of channels 
-			# may be interesting to add more channels, for remote shells and stuff
-			chan = t.open_session()
-			# fire up Xvnc on remote system and capture the output
-			chan.exec_command(REMOTE_VNCCOMMAND)
-			stdin = chan.makefile('wb')
-			stdout = chan.makefile('rb')
-			stderr = chan.makefile_stderr('rb')
-			# expecting an integer from the remote_vnccommand script, to tell us what port to use
-			vnc_port = int(stdout.readline()) + 5900
-			verbose('Discovered VNC on port %i' % (vnc_port))
-
-			# get a clue to tell us if we are compatible with the remote
-			# compare remote_verison to local and if the remote is newer throw a warning
-			remote_version = int(stdout.readline())
-			verbose('Remote version %i' %(remote_version))
-			if remote_version > version.VERSION:
-				QMessageBox.warning(self,"Update Available", "There is a newer version of EasyVNC available for download.  Please download and install a new copy from sw.src.uchicago.edu in order to ensure continued use.")
-
-			# we are done with this control channel
-			chan.close()
-
-			# create a thread to forward packets to server
-			thread.start_new_thread(forward_tunnel, (vnc_port, 'localhost', vnc_port, t, ))
-
-			# start up the local vnc client
-			vncprocess = subprocess.Popen(config.vnccommand, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-			# pipe the vncconfig into the new vnc client process
-			vncconfig = config.get_vncconfig(vnc_port)
-			verbose('vncconfig: ' + vncconfig)		
-			vncprocess.stdin.write(str.encode(vncconfig))
-			vncprocess.stdin.close()
-
-			# block until vnc exits
-			vncprocess.wait()			
-			self.show()
-			
-			# minimize the GUI
-			#self.hide()
-		except ValueError:
-			QMessageBox.warning(self, "Server Error", "%s did not respond as expected to the command \n %s\nContact server support and report this error." % (config.remote_host, remote_vnccommand))
-			t.close()
-			return
-		except paramiko.AuthenticationException:
-			QMessageBox.warning(self, "Connect Failed", "Authentication failed :(  You provided an incorrect username or password for %s" % (config.remote_host))
-			t.close()
-			return
-		except Exception as e:
-			QMessageBox.warning(self, "Unhandled Exception", "An application error has occured.\n Traceback: %s Dir:%s CMD: %s" % (traceback.format_exc(), config.scriptdir, config.vnccommand))
-			app.quit()
-	
 
 def forward_tunnel(local_port, remote_host, remote_port, transport):
 	"""Start a tunnel using the supplied transport object"""
@@ -344,31 +271,35 @@ def forward_tunnel(local_port, remote_host, remote_port, transport):
 			try:
 				chan = transport.open_channel('direct-tcpip', (remote_host, remote_port), self.request.getpeername())
 			except Exception as e:
-				verbose('Incoming request to %s:%d failed: %s' % (remote_host, remote_port, repr(e)))
+				mainwindow.console.append('Incoming request to %s:%d failed: %s' % (remote_host, remote_port, repr(e)))
 				return
 			if chan is None:
-				verbose('Incoming request to %s:%d was rejected by the SSH server.' % (remote_host, remote_port))
+				mainwindow.console.append('Incoming request to %s:%d was rejected by the SSH server.' % (remote_host, remote_port))
 				return
-			verbose('Connected!  Tunnel open %r -> %r -> %r' % (self.request.getpeername(), chan.getpeername(), (remote_host, remote_port)))
+			mainwindow.console.append('Connected!  Tunnel open %r -> %r -> %r' % (self.request.getpeername(), chan.getpeername(), (remote_host, remote_port)))
 	
 			# The tunnel is established, start send and receive buffer loop
 			while True:
 				r, w, x = select.select([self.request, chan], [], [])
 				if self.request in r:
 					data = self.request.recv(1024)
-					if len(data) == 0:
+					size = len(data)
+					mainwindow.txsize += size
+					if size == 0:
 						break
 					chan.send(data)
 				if chan in r:
 					data = chan.recv(1024)
-					if len(data) == 0:
+					size = len(data)
+					mainwindow.rxsize += size
+					if size == 0:
 						break
 					self.request.send(data)
 			# exit of loop indicates that the connection is closed down
 			# close down request and exit app
 			chan.close()
 			self.request.close()
-			verbose('Tunnel closed ')
+			mainwindow.console.append('Tunnel closed ')
 			app.quit()
 
 	# Start the Threading TCP server using the above defined Handler. This is actually
@@ -378,20 +309,152 @@ def forward_tunnel(local_port, remote_host, remote_port, transport):
 	forwardserver.allow_reuse_address = True
 	forwardserver.serve_forever()
 
-class MainWindow(QMainWindow):
+class MainWindow(KQDialog):
 	def __init__(self):
-		QMainWindow.__init__(self)
+		KQDialog.__init__(self)
 		
-		self.setWindowTitle("EasyVNC")
+		self.setWindowTitle("EasyVNC Status")
+		self.resize(600,400)
+		self.centerWindow()
+				
+		self.console = QTextEdit()
+		self.rxsize = 0
+		self.txsize = 0
+		self.rx = 0
+		self.tx = 0 
 		
+		self.rxrate = QProgressBar()
+		self.txrate = QProgressBar()
+		self.rxrate.setRange = (1, 300000)
+		self.txrate.setRange = (1, 300000)
+
+				
+		self.connected = 0
+		self.connected_for = QLineEdit()
+
+		# Set up a timer that will fire every 1000ms to update the status box with info 
+		# from the forward_tunnel
+		self._status_update_timer = QTimer(self)
+		self._status_update_timer.setSingleShot(False)
+		self._status_update_timer.timeout.connect(self._status_update)
+		self._status_update_timer.start(1000)
+				
+		mainlayout = QVBoxLayout()
+		mainlayout.addWidget(self.txrate)
+		mainlayout.addWidget(self.rxrate)
+		mainlayout.addWidget(self.connected_for)
+		mainlayout.addWidget(self.console)
+		self.setLayout(mainlayout)
+		
+		while True:
+			self.show()
+			loginui = LoginUI()
+			loginui.exec_()
+			loginui = None
+
+			result = self.connect()
+			if result == 0: 
+				break
+	
+	def _status_update(self):
+		if self.connected:
+			self.connected_for.setText(str(time.time() - self.connected))
+			self.rx = ( self.rx + self.rxsize ) / 2
+			self.tx = ( self.tx + self.txsize ) / 2
+			
+			self.rxrate.setValue(self.rx)
+			self.txrate.setValue(self.tx)
+			
+			self.rxsize = 0
+			self.txsize = 0
+	
+	def connect(self):
+		# attempt to connect TCP socket to remote host, catch exceptions and throw warnings if there are problems	
+		try:
+			self.console.append("Opening connection to "+ config.get_fqdn_remote_host() + ":" + str(config.remote_port))
+			sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+			sock.connect((config.get_fqdn_remote_host(), config.remote_port))
+			self.console.append("Connected.")
+			self.connected = time.time()
+		except Exception as e:
+			if e.errno == 11001:
+				QMessageBox.warning(self, "Connect Failed", "Could not connect because the remote_host (%s) would not resolve.\n  There may be a problem with your internet connection." % (remote_host))
+				return(1)
+			else:
+				QMessageBox.warning(self, "Connect Failed", "Could not connect to remote SSH daemon %s: %s" % (config.get_fqdn_remote_host(), str(e)))
+				return(1)
+			return
+
+		try:
+			# start a new paramiko transport over TCP socket
+			t = paramiko.Transport(sock)
+			t.start_client()
+
+			# authenticate 
+			self.console.append("Authenticating to remote host as "+ config.username)
+			t.auth_password(config.username, config.password)
+	
+			# authentication was successful, save the config
+			config.save()
+	
+			# a new channel on the paramiko transport layer, ssh can have lots of channels 
+			# may be interesting to add more channels, for remote shells and stuff
+			chan = t.open_session()
+			# fire up Xvnc on remote system and capture the output
+			chan.exec_command(REMOTE_VNCCOMMAND)
+			stdin = chan.makefile('wb')
+			stdout = chan.makefile('rb')
+			stderr = chan.makefile_stderr('rb')
+			# expecting an integer from the remote_vnccommand script, to tell us what port to use
+			vnc_port = int(stdout.readline()) + 5900
+			self.console.append('Discovered VNC on port %i' % (vnc_port))
+
+			# get a clue to tell us if we are compatible with the remote
+			# compare remote_verison to local and if the remote is newer throw a warning
+			remote_version = int(stdout.readline())
+			self.console.append('Remote version %i' %(remote_version))
+			if remote_version > version.VERSION:
+				QMessageBox.warning(self,"Update Available", "There is a newer version of EasyVNC available for download.  Please download and install a new copy from sw.src.uchicago.edu in order to ensure continued use.")
+
+			# we are done with this control channel
+			chan.close()
+
+			# create a thread to forward packets to server
+			thread.start_new_thread(forward_tunnel, (vnc_port, 'localhost', vnc_port, t, ))
+			thread.start_new_thread(self.vncprocess, (vnc_port,))
+			return(0)
+			
+		except ValueError:
+			QMessageBox.warning(self, "Server Error", "%s did not respond as expected to the command \n %s\nContact server support and report this error." % (config.remote_host, remote_vnccommand))
+			t.close()
+			return(1)
+		except paramiko.AuthenticationException:
+			QMessageBox.warning(self, "Connect Failed", "Authentication failed :(  You provided an incorrect username or password for %s" % (config.remote_host))
+			t.close()
+			return(1)
+		except Exception as e:
+			QMessageBox.warning(self, "Unhandled Exception", "An application error has occured.\n Traceback: %s Dir:%s CMD: %s" % (traceback.format_exc(), config.scriptdir, config.vnccommand))
+			app.quit()		
+
+	def vncprocess(self, vnc_port):
+		# start up the local vnc client
+		vncprocess = subprocess.Popen(config.vnccommand, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+		# pipe the vncconfig into the new vnc client process
+		vncconfig = config.get_vncconfig(vnc_port)
+		self.console.append('vncconfig: ' + vncconfig)		
+		vncprocess.stdin.write(str.encode(vncconfig))
+		vncprocess.stdin.close()
+		# block until vnc exits, callback
+		vncprocess.wait()
+		self.vncprocess_done()
+	
+	def vncprocess_done(self):
+		self.console.append("VNC has quit.")
+		sys.exit()
+
+
 
 if __name__ == '__main__':
 	app = QApplication(sys.argv)
 	mainwindow = MainWindow()
-
-	loginui = LoginUI()
-	loginui.exec_()
-
-	mainwindow.show()
-
 	sys.exit(app.exec_())
