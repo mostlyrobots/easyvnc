@@ -309,7 +309,18 @@ def forward_tunnel(local_port, remote_host, remote_port, transport):
 	forwardserver.allow_reuse_address = True
 	forwardserver.serve_forever()
 
+class RateBar(QProgressBar):
+	def __init__(self):
+		QProgressBar.__init__(self)
+		self.setRange(1,100000)
+		stylesheet = """QProgressBar { border: 1px solid rgb(35, 167, 41); border-radius: 5px; text-align: center; }  """
+		stylesheet += """QProgressBar::chunk { background-color: rgb(40, 196, 50); width: 10px; margin: 1px; }  """
+		self.setStyleSheet(stylesheet)
+
 class MainWindow(KQDialog):
+
+
+			
 	def __init__(self):
 		KQDialog.__init__(self)
 		
@@ -318,19 +329,17 @@ class MainWindow(KQDialog):
 		self.centerWindow()
 				
 		self.console = QTextEdit()
+		self.console.setReadOnly(True)
 		self.rxsize = 0
 		self.txsize = 0
 		self.rx = 0
 		self.tx = 0 
 		
-		self.rxrate = QProgressBar()
-		self.txrate = QProgressBar()
-		self.rxrate.setRange = (1, 300000)
-		self.txrate.setRange = (1, 300000)
-
+		self.rxrate = RateBar()
+		self.txrate = RateBar()
 				
 		self.connected = 0
-		self.connected_for = QLineEdit()
+		self.connected_for = QLabel()
 
 		# Set up a timer that will fire every 1000ms to update the status box with info 
 		# from the forward_tunnel
@@ -340,9 +349,28 @@ class MainWindow(KQDialog):
 		self._status_update_timer.start(1000)
 				
 		mainlayout = QVBoxLayout()
-		mainlayout.addWidget(self.txrate)
-		mainlayout.addWidget(self.rxrate)
-		mainlayout.addWidget(self.connected_for)
+
+		progress_lo = QVBoxLayout()
+		tx_progress_lo = QHBoxLayout()
+		tx_progress_lo.addWidget(QLabel("TX"))
+		tx_progress_lo.addWidget(self.txrate)
+		progress_lo.addLayout(tx_progress_lo)
+
+		rx_progress_lo = QHBoxLayout()
+		rx_progress_lo.addWidget(QLabel("RX"))
+		rx_progress_lo.addWidget(self.rxrate)
+		progress_lo.addLayout(rx_progress_lo)
+
+		connected_for_lo = QHBoxLayout()
+		connected_for_lo.addWidget(QLabel("Connected"))
+		connected_for_lo.addWidget(self.connected_for)
+		connected_for_lo.addStretch(1)
+		
+		top_lo = QHBoxLayout()
+		top_lo.addLayout(connected_for_lo)
+		top_lo.addLayout(progress_lo)
+		
+		mainlayout.addLayout(top_lo)
 		mainlayout.addWidget(self.console)
 		self.setLayout(mainlayout)
 		
@@ -358,7 +386,7 @@ class MainWindow(KQDialog):
 	
 	def _status_update(self):
 		if self.connected:
-			self.connected_for.setText(str(time.time() - self.connected))
+			self.connected_for.setText(str(time.strftime('%H:%M:%S', time.gmtime(time.time() - self.connected))))
 			self.rx = ( self.rx + self.rxsize ) / 2
 			self.tx = ( self.tx + self.txsize ) / 2
 			
