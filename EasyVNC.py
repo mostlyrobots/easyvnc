@@ -1,7 +1,7 @@
 #! /usr/bin/env pythonw
 # -*- coding: utf-8 -*-
 
-# local version number
+# local scirpt version number
 import version
 
 import base64
@@ -20,6 +20,7 @@ import subprocess
 
 from binascii import hexlify
 
+# QT5 libraries 
 from PyQt5.QtWidgets import *
 from PyQt5.QtCore import *
 
@@ -53,6 +54,7 @@ REMOTE_VNCCOMMAND = """
 	"""
 
 class Password(str):
+	"""Extended str() class for handling obfuscated VNC passwords. Accepts plaintext str()."""
 	def _vnc_obfuscate(self, password):
 		"""Obfuscate a plaintext password in VNC format"""
 		# pad password up to 8 chars, truncate anything over 8
@@ -72,14 +74,20 @@ class Password(str):
 		return hexlify(self._vnc_obfuscate(self)).decode()
 	
 class Config():
+	"""Master App config"""
 	def __init__(self):
+		# the host and port we are going to connect to
 		self.remote_host = str()
+		self.remote_port = 22
+
 		self.homedir = os.path.expanduser("~")
 		self.scriptdir = self.get_scriptdir()
-		self.remote_port = 22
 		self.password = Password()
 		
 		vncargs = ['-config', '-']
+
+		# these are all possible host options for the dropdown in the GUI
+		self.hosts = ("acropolis", "athensx", "cronusx", "css", "rhodesx")
 		
 		if os.name == 'nt':
 			# windows is the os
@@ -91,18 +99,16 @@ class Config():
 			self.vnccommand = [ self.scriptdir + '/vncviewer.app/Contents/MacOS/vncviewer'] + vncargs
 			self.username = os.environ.get('LOGNAME')
 			self.configfile = self.homedir + '/.mvnc.cfg'
-		
-		# these are all possible host options for the dropdown in the GUI
-		self.hosts = ("acropolis", "athensx", "cronusx", "css", "rhodesx")
 
-		self.load()
+		self.load() 
 
 	def get_vncconfig(self, vnc_port):
 		vncconfig='Host=127.0.0.1:%s\nUsername=%s\n Password=%s\nverifyid=0\nautoreconnect=1\nclientcuttext=1\nencryption=preferoff\nshared=0\nuserlocalcursor=1\nsecuritynotificationtimeout=0\nservercuttext=1\nsharefiles=1\nwarnunencrypted=0\n'
 		return vncconfig % (vnc_port, self.username, self.password.get_vnchex()) 
 
 	def get_scriptdir(self):
-		# determine if application is a script file or frozen exe
+		"""Return the full path of the directory this script is being executed from"""
+		# Determine if application is a script file or frozen exe
 		if getattr(sys, 'frozen', False):
 			application_path = sys._MEIPASS
 		else:
@@ -284,14 +290,14 @@ def forward_tunnel(local_port, remote_host, remote_port, transport):
 				if self.request in r:
 					data = self.request.recv(1024)
 					size = len(data)
-					mainwindow.txsize += size
+					mainwindow.txrate.addBytes(size)
 					if size == 0:
 						break
 					chan.send(data)
 				if chan in r:
 					data = chan.recv(1024)
 					size = len(data)
-					mainwindow.rxsize += size
+					mainwindow.rxrate.addBytes(size)
 					if size == 0:
 						break
 					self.request.send(data)
@@ -316,11 +322,19 @@ class RateBar(QProgressBar):
 		stylesheet = """QProgressBar { border: 1px solid rgb(35, 167, 41); border-radius: 5px; text-align: center; }  """
 		stylesheet += """QProgressBar::chunk { background-color: rgb(40, 196, 50); width: 10px; margin: 1px; }  """
 		self.setStyleSheet(stylesheet)
+		self.setFormat("%v bps")
+		self.bytes = 0
+		
+	def addBytes(self, size):
+		self.bytes += size
+
+	def updateRate(self):
+		self.setValue((self.value() + self.bytes ) / 2 )
+		self.bytes = 0
 
 class MainWindow(KQDialog):
+	"""This class is the main interface for EasyVNC"""
 
-
-			
 	def __init__(self):
 		KQDialog.__init__(self)
 		
@@ -330,11 +344,7 @@ class MainWindow(KQDialog):
 				
 		self.console = QTextEdit()
 		self.console.setReadOnly(True)
-		self.rxsize = 0
-		self.txsize = 0
-		self.rx = 0
-		self.tx = 0 
-		
+
 		self.rxrate = RateBar()
 		self.txrate = RateBar()
 				
@@ -375,35 +385,40 @@ class MainWindow(KQDialog):
 		self.setLayout(mainlayout)
 		
 		while True:
-			self.show()
+			self.hide()
+
 			loginui = LoginUI()
 			loginui.exec_()
+			loginui.hide()
+
 			loginui = None
+			
+			self.show()
 
 			result = self.connect()
 			if result == 0: 
 				break
 	
 	def _status_update(self):
+		self.update()
+		QApplication.processEvents()
 		if self.connected:
 			self.connected_for.setText(str(time.strftime('%H:%M:%S', time.gmtime(time.time() - self.connected))))
-			self.rx = ( self.rx + self.rxsize ) / 2
-			self.tx = ( self.tx + self.txsize ) / 2
-			
-			self.rxrate.setValue(self.rx)
-			self.txrate.setValue(self.tx)
-			
-			self.rxsize = 0
-			self.txsize = 0
+			self.rxrate.updateRate()
+			self.txrate.updateRate()
+
 	
 	def connect(self):
+		
 		# attempt to connect TCP socket to remote host, catch exceptions and throw warnings if there are problems	
 		try:
 			self.console.append("Opening connection to "+ config.get_fqdn_remote_host() + ":" + str(config.remote_port))
+			self.console.update()
 			sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 			sock.connect((config.get_fqdn_remote_host(), config.remote_port))
 			self.console.append("Connected.")
 			self.connected = time.time()
+			self.update()
 		except Exception as e:
 			if e.errno == 11001:
 				QMessageBox.warning(self, "Connect Failed", "Could not connect because the remote_host (%s) would not resolve.\n  There may be a problem with your internet connection." % (remote_host))
@@ -437,7 +452,7 @@ class MainWindow(KQDialog):
 			vnc_port = int(stdout.readline()) + 5900
 			self.console.append('Discovered VNC on port %i' % (vnc_port))
 
-			# get a clue to tell us if we are compatible with the remote
+			# get a hint to tell us if we are compatible with the remote
 			# compare remote_verison to local and if the remote is newer throw a warning
 			remote_version = int(stdout.readline())
 			self.console.append('Remote version %i' %(remote_version))
@@ -449,7 +464,9 @@ class MainWindow(KQDialog):
 
 			# create a thread to forward packets to server
 			thread.start_new_thread(forward_tunnel, (vnc_port, 'localhost', vnc_port, t, ))
+			# create a thread to run the vnc client process
 			thread.start_new_thread(self.vncprocess, (vnc_port,))
+
 			return(0)
 			
 		except ValueError:
@@ -465,6 +482,7 @@ class MainWindow(KQDialog):
 			app.quit()		
 
 	def vncprocess(self, vnc_port):
+		"""Start a blocking vnc subprocess, once the vnc process exits terminate the script."""
 		# start up the local vnc client
 		vncprocess = subprocess.Popen(config.vnccommand, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 		# pipe the vncconfig into the new vnc client process
@@ -474,9 +492,7 @@ class MainWindow(KQDialog):
 		vncprocess.stdin.close()
 		# block until vnc exits, callback
 		vncprocess.wait()
-		self.vncprocess_done()
-	
-	def vncprocess_done(self):
+
 		self.console.append("VNC has quit.")
 		sys.exit()
 
