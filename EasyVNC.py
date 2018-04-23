@@ -31,18 +31,28 @@ import d3des
 #this command will be executed on the remote host to start the Xvnc server session
 REMOTE_VNCCOMMAND = """
 	vncactive() {
-		 VNCACTIVE=($(ps -C Xvnc-core -o user,args | grep $USER | grep : | cut -d: -f2 | cut -d' ' -f1))
+		VNCPID=$(pgrep -U $USER Xvnc*)
+		if [ "$VNCPID" != "" ]; then
+			VNCACTIVE=$(ps -p $VNCPID -o args | grep : | cut -d: -f2 | cut -d' ' -f1)
+		fi
 	};
+	
 	remove_locks() {
 		find /tmp/.X* -user $USER -exec rm '{}' \;
 	};
+	
+	vnckill() {
+		vncactive
+		kill $VNCPID
+	}
+	
 	run_vnc() {
 		vncactive
 		case ${#VNCACTIVE[@]} in 
 			0)
 				#not running
 				remove_locks
-				/usr/bin/.remotex -geometry 1024x768 -randr 1680x1050,1280x800,2048x1150,1920x1200,1152x864,1600x900,1366x768,1280x1024,1440x900,2560x1440,1024x768,1920x1080 &>/dev/null
+				$(command -v .remotex vncserver| head -1) -geometry 1024x768  &>/dev/null
 				vncactive
 			;;
 		esac 
@@ -87,7 +97,7 @@ class Config():
 		vncargs = ['-config', '-']
 
 		# these are all possible host options for the dropdown in the GUI
-		self.hosts = ("acropolis", "athensx", "cronusx", "css", "rhodesx")
+		self.hosts = ("acropolis.uchicago.edu", "athens.uchicago.edu", "cronus.uchicago.edu", "css.uchicago.edu", "rhodes.uchicago.edu", "10.10.252.53")
 		
 		if os.name == 'nt':
 			# windows is the os
@@ -116,6 +126,7 @@ class Config():
 		return application_path
 
 	def get_fqdn_remote_host(self):
+		return self.remote_host
 		return self.remote_host + ".uchicago.edu"
 
 	def load(self):
@@ -127,7 +138,10 @@ class Config():
 				if key == 'username':
 					self.username=value.strip()
 				elif key == 'remote_host':
-					self.remote_host=value.strip()
+					remote_host=value.strip()
+					if remote_host in self.hosts:
+						# reject remote_host entries that are options
+						self.remote_host = remote_host
 		except IOError:
 			return
 
@@ -140,11 +154,6 @@ class Config():
 global config
 config = Config()
 
-
-def verbose(*s):
-	"""Wrapper function to print debug statements"""
-	print(*s, file=sys.stderr)
-	pass
 
 def excepthook(excType, excValue, tracebackobj):
 	"""
@@ -194,8 +203,10 @@ class KQDialog(QDialog):
 		sys.exit()
 
 class LoginUI(KQDialog):
-	def __init__(self):
+	def __init__(self, mainwindow):
 	
+		self._mainwindow = mainwindow
+		
 		KQDialog.__init__(self)
 		
 		self.username = QLineEdit()
@@ -260,7 +271,7 @@ class LoginUI(KQDialog):
 		config.password = Password(self.password.text())
 		config.remote_host = str(self.remote_host.currentText())
 		
-		verbose("%s@%s:%s" % (config.username, config.get_fqdn_remote_host(), config.remote_port))
+		self._mainwindow.console.append("%s@%s:%s" % (config.username, config.get_fqdn_remote_host(), config.remote_port))
 
 		self.done(0)
 
@@ -387,7 +398,7 @@ class MainWindow(KQDialog):
 		while True:
 			self.hide()
 
-			loginui = LoginUI()
+			loginui = LoginUI(self)
 			loginui.exec_()
 			loginui.hide()
 
@@ -470,7 +481,7 @@ class MainWindow(KQDialog):
 			return(0)
 			
 		except ValueError:
-			QMessageBox.warning(self, "Server Error", "%s did not respond as expected to the command \n %s\nContact server support and report this error." % (config.remote_host, remote_vnccommand))
+			QMessageBox.warning(self, "Server Error", "%s did not respond as expected to the command \n %s\nContact server support and report this error." % (config.remote_host, REMOTE_VNCCOMMAND))
 			t.close()
 			return(1)
 		except paramiko.AuthenticationException:
