@@ -98,7 +98,7 @@ class Config():
 		vncargs = ['-config', '-']
 
 		# these are all possible host options for the dropdown in the GUI
-		self.hosts = ("acropolis.uchicago.edu", "athens.uchicago.edu", "cronus.uchicago.edu", "css.uchicago.edu", "rhodes.uchicago.edu", "10.10.252.53")
+		self.hosts = ("acropolis.uchicago.edu", "athens.uchicago.edu", "cronus.uchicago.edu", "css.uchicago.edu", "rhodes.uchicago.edu")
 		
 		if os.name == 'nt':
 			# windows is the os
