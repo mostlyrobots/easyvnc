@@ -13,6 +13,7 @@ import sys
 import time
 import traceback
 import io
+import re
 
 import socketserver
 import _thread as thread
@@ -498,7 +499,8 @@ class MainWindow(KQDialog):
 		vncprocess = subprocess.Popen(config.vnccommand, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 		# pipe the vncconfig into the new vnc client process
 		vncconfig = config.get_vncconfig(vnc_port)
-		self.console.append('vncconfig: ' + vncconfig)		
+		safe_vncconfig = re.sub(r".*Password= *\S*\n","Password=<hidden>\n",vncconfig)
+		self.console.append('vncconfig: ' + safe_vncconfig)		
 		vncprocess.stdin.write(str.encode(vncconfig))
 		vncprocess.stdin.close()
 		# block until vnc exits, callback
