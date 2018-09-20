@@ -1,5 +1,5 @@
 
-cd C:\Users\lcoady\Google Drive\Career\Work\easyvnc\build_win
+cd C:\Users\lcoady\Google Drive\Work\easyvnc\build_win
 
 SET EASYVNCBUILD=%TEMP%\easyvnc-build
 
