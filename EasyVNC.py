@@ -19,7 +19,6 @@ import socketserver
 import _thread as thread
 import subprocess
 
-from binascii import hexlify
 
 # QT5 libraries 
 from PyQt5.QtWidgets import *
@@ -29,10 +28,13 @@ from PyQt5.QtCore import *
 import paramiko
 import d3des
 
+if os.name is not 'nt': import applescript
+
+
 #this command will be executed on the remote host to start the Xvnc server session
 REMOTE_VNCCOMMAND = """
 	vncactive() {
-		VNCPID=$(pgrep -U $USER Xvnc*)
+		VNCPID=$(pgrep -U $USER Xvnc* | tr ' ' ',')
 		if [ "$VNCPID" != "" ]; then
 			VNCACTIVE=$(ps -p $VNCPID -o args | grep : | cut -d: -f2 | cut -d' ' -f1)
 		fi
@@ -47,19 +49,27 @@ REMOTE_VNCCOMMAND = """
 		kill $VNCPID
 	}
 	
+	vncmkpass() {
+		PASS=$(openssl rand -base64 9)
+		echo $PASS | ~/vncpasswd -f > ~/.vnc/passwd 
+	}
+	
 	run_vnc() {
+		vncmkpass
+		
 		vncactive
 		case ${#VNCACTIVE[@]} in 
 			0)
 				#not running
 				remove_locks
-				$(command -v .remotex vncserver| head -1) -geometry 1024x768  &>/dev/null
+				$(command -v ~/vncserver .remotex vncserver| head -1) -geometry 1024x768  &>/dev/null
 				vncactive
 			;;
 		esac 
 
 		echo ${VNCACTIVE[0]}
 		echo 0
+		echo $PASS
 	};
 	run_vnc
 	"""
@@ -107,7 +117,9 @@ class Config():
 			self.configfile = self.homedir + '\\mvnc.cfg'
 		else:
 			# otherwise presume macos
-			self.vnccommand = [ self.scriptdir + '/vncviewer.app/Contents/MacOS/vncviewer'] + vncargs
+
+			# self.vnccommand = [self.scriptdir + '/vncviewer.app/Contents/MacOS/vncviewer'] + vncargs
+			self.vnccommand = ['/System/Library/CoreServices/Applications/Screen Sharing.app/Contents/MacOS/Screen Sharing']
 			self.username = os.environ.get('LOGNAME')
 			self.configfile = self.homedir + '/.mvnc.cfg'
 
@@ -471,6 +483,10 @@ class MainWindow(KQDialog):
 			if remote_version > version.VERSION:
 				QMessageBox.warning(self,"Update Available", "There is a newer version of EasyVNC available for download.  Please download and install a new copy from sw.src.uchicago.edu in order to ensure continued use.")
 
+			# get the new password for the remote session
+			config.password = Password(stdout.readline().decode('utf-8').strip())
+			self.console.append('Generated new VNC server secret: %s' %(config.password))
+
 			# we are done with this control channel
 			chan.close()
 
@@ -502,6 +518,7 @@ class MainWindow(KQDialog):
 		safe_vncconfig = re.sub(r".*Password= *\S*\n","Password=<hidden>\n",vncconfig)
 		self.console.append('vncconfig: ' + safe_vncconfig)		
 		vncprocess.stdin.write(str.encode(vncconfig))
+		applescript.tell.app('Screen Sharing', 'open location "vnc://%s:%s@localhost:%s"' % (config.username,config.password, vnc_port))
 		vncprocess.stdin.close()
 		# block until vnc exits, callback
 		vncprocess.wait()
