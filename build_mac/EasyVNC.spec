@@ -6,7 +6,6 @@ block_cipher = None
 a = Analysis(['../EasyVNC.py'],
              pathex=['/Users/lcoady/Google Drive/Career/Work/easyvnc'],
              binaries=[],
-             datas=[ ('/Users/lcoady/Desktop/Work/easyvnc/build_mac/vncviewer.app', 'vncviewer.app')  ],
              hiddenimports=[],
              hookspath=[],
              runtime_hooks=[],

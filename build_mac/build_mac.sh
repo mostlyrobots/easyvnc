@@ -8,6 +8,7 @@
 
 THISDIR=`pwd`
 BUILDDIR=/tmp/easyvnc-build
+PYINSTALLER=/Library/Frameworks/Python.framework/Versions/3.*/bin/pyinstaller
 
 echo "Clearing out $BUILDDIR"
 rm -rf "$BUILDDIR"
@@ -16,7 +17,7 @@ mkdir -p "$BUILDDIR"
 cd "$THISDIR/.."
 pwd 
 
-pyinstaller --workpath $BUILDDIR/easyvnc --distpath $BUILDDIR/dist/ build_mac/EasyVNC.spec
+$PYINSTALLER --workpath $BUILDDIR/easyvnc --distpath $BUILDDIR/dist/ build_mac/EasyVNC.spec
 ln -s /Applications $BUILDDIR/dist/Applications
 rm -rf $BUILDDIR/dist/EasyVNC
 
