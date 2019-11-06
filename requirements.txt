@@ -1,3 +1,4 @@
 PyQt5==5.13.2
 paramiko==2.4.3
 applescript==2019.4.13
+cryptography==2.2.2
