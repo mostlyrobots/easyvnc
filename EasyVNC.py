@@ -51,7 +51,7 @@ REMOTE_VNCCOMMAND = """
 	
 	vncmkpass() {
 		PASS=$(openssl rand -base64 9)
-		echo $PASS | ~/vncpasswd -f > ~/.vnc/passwd 
+		echo $PASS | /usr/local/tigervnc/vncpasswd -f > ~/.vnc/passwd 
 	}
 	
 	run_vnc() {
@@ -62,7 +62,7 @@ REMOTE_VNCCOMMAND = """
 			0)
 				#not running
 				remove_locks
-				$(command -v ~/vncserver .remotex vncserver| head -1) -geometry 1024x768  &>/dev/null
+				$(command -v /usr/local/tigervnc/vncserver .remotex vncserver| head -1) -geometry 1024x768  &>/dev/null
 				vncactive
 			;;
 		esac 
