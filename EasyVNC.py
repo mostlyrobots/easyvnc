@@ -50,11 +50,14 @@ REMOTE_VNCCOMMAND = """
 	}
 	
 	vncmkpass() {
-		PASS=$(openssl rand -base64 9)
+		PASS=$(openssl rand -base64 9 | tr '/' ',')
 		echo $PASS | /usr/local/tigervnc/vncpasswd -f > ~/.vnc/passwd 
 	}
 	
 	run_vnc() {
+		mkdir -p ~/.vnc
+		PATH=/usr/local/tigervnc:$PATH;	export PATH
+		
 		vncmkpass
 		
 		vncactive
@@ -62,7 +65,8 @@ REMOTE_VNCCOMMAND = """
 			0)
 				#not running
 				remove_locks
-				$(command -v /usr/local/tigervnc/vncserver .remotex vncserver| head -1) -geometry 1024x768  &>/dev/null
+				vncserver -rfbauth ~/.vnc/passwd -xstartup /usr/local/tigervnc/xstartup -geometry 1024x768  &>/dev/null
+				sleep 2 # give the process time to warm up
 				vncactive
 			;;
 		esac 
@@ -518,7 +522,7 @@ class MainWindow(KQDialog):
 		safe_vncconfig = re.sub(r".*Password= *\S*\n","Password=<hidden>\n",vncconfig)
 		self.console.append('vncconfig: ' + safe_vncconfig)		
 		vncprocess.stdin.write(str.encode(vncconfig))
-		applescript.tell.app('Screen Sharing', 'open location "vnc://%s:%s@localhost:%s"' % (config.username,config.password, vnc_port))
+		applescript.tell.app('Screen Sharing', 'open location "vnc://%s:%s@localhost:%s"' % (config.username, config.password, vnc_port))
 		vncprocess.stdin.close()
 		# block until vnc exits, callback
 		vncprocess.wait()
