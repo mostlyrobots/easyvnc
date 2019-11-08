@@ -5,9 +5,9 @@ block_cipher = None
 # add this to pathex and change escapes "C:\python35\lib\site-packages\pyqt5\qt\bin"
 
 a = Analysis(['..\\EasyVNC.py'],
-             pathex=['C:\\program files(x86)\\Windows Kits\\10\\Redist\\ucrt\\DLLs\\x64', 'C:\\Users\\lcoady\\Google Drive\\Work\\easyvnc\\build_win'],
+             pathex=['C:\\program files(x86)\\Windows Kits\\10\\Redist\\ucrt\\DLLs\\x64', 'X:\\easyvnc\\build_win'],
              binaries=[],
-             datas=[('C:\\Users\\lcoady\\Google Drive\\Work\\easyvnc\\build_win\\vncviewer.exe', 'vncviewer.exe')],
+             datas=[('X:\\easyvnc\\build_win\\vncviewer.exe', '.')],
              hiddenimports=[],
              hookspath=[],
              runtime_hooks=[],

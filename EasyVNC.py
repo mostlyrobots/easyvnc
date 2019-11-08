@@ -15,6 +15,8 @@ import traceback
 import io
 import re
 
+import tempfile
+
 import socketserver
 import _thread as thread
 import subprocess
@@ -80,6 +82,8 @@ REMOTE_VNCCOMMAND = """
 
 class Password(str):
 	"""Extended str() class for handling obfuscated VNC passwords. Accepts plaintext str()."""
+	passwordfile = None
+	
 	def obfuscate(self, password):
 		"""Obfuscate a plaintext password in VNC format"""
 		
@@ -105,6 +109,15 @@ class Password(str):
 		"""return the hexencoded obfuscated vnc password"""
 		return hexlify(self.obfuscate(self)).decode()
 	
+	def get_passwordfile(self):
+		if self.passwordfile: return self.passwordfile.name
+		self.passwordfile = tempfile.NamedTemporaryFile()
+		self.passwordfile.file.write(self.obfuscate(self))
+		print(self.get_vnchex())
+		self.passwordfile.file.flush()
+		return self.passwordfile.name
+		
+	
 class Config():
 	"""Master App config"""
 	def __init__(self):
@@ -116,8 +129,10 @@ class Config():
 		self.scriptdir = self.get_scriptdir()
 		self.password = Password()
 		
-		vncargs = ['-config', '-']
+		#vncargs = ['-config', '-']
 
+		vncargs = ['-PasswordFile', '', 'localhost:%s' ]
+		
 		# these are all possible host options for the dropdown in the GUI
 		self.hosts = ("acropolis.uchicago.edu", "athens.uchicago.edu", "cronus.uchicago.edu", "css.uchicago.edu", "rhodes.uchicago.edu")
 		
@@ -130,16 +145,21 @@ class Config():
 			# otherwise presume macos
 
 			# self.vnccommand = [self.scriptdir + '/vncviewer.app/Contents/MacOS/vncviewer'] + vncargs
-			self.vnccommand = ['/System/Library/CoreServices/Applications/Screen Sharing.app/Contents/MacOS/Screen Sharing']
+			self.vnccommand = ['/System/Library/CoreServices/Applications/Screen Sharing.app/Contents/MacOS/Screen Sharing'] + vncargs
 			self.username = os.environ.get('LOGNAME')
 			self.configfile = self.homedir + '/.mvnc.cfg'
 
 		self.load() 
 
+	def get_vnccommand(self, vnc_port):
+		self.vnccommand[2] = self.password.get_passwordfile()
+		self.vnccommand[3] = self.vnccommand[3] % vnc_port
+		return self.vnccommand
+
 	def get_vncconfig(self, vnc_port):
-		vncconfig='Host=127.0.0.1:%s\nUsername=%s\n Password=%s\nverifyid=0\nautoreconnect=1\nclientcuttext=1\nencryption=preferoff\nshared=0\nuserlocalcursor=1\nsecuritynotificationtimeout=0\nservercuttext=1\nsharefiles=1\nwarnunencrypted=0\n'
-		#vncconfig='-PasswordFile - '
-		return vncconfig % (vnc_port, self.username, self.password.get_vnchex()) 
+		#vncconfig='Host=127.0.0.1:%s\nUsername=%s\n Password=%s\nverifyid=0\nautoreconnect=1\nclientcuttext=1\nencryption=preferoff\nshared=0\nuserlocalcursor=1\nsecuritynotificationtimeout=0\nservercuttext=1\nsharefiles=1\nwarnunencrypted=0\n'
+		vncconfig='-PasswordFile %s 127.0.0.1:%s'
+		return vncconfig % (self.password.get_passwordfile(), vnc_port) 
 
 	def get_scriptdir(self):
 		"""Return the full path of the directory this script is being executed from"""
@@ -523,13 +543,17 @@ class MainWindow(KQDialog):
 
 	def vncprocess(self, vnc_port):
 		"""Start a blocking vnc subprocess, once the vnc process exits terminate the script."""
+		vnccommand = config.get_vnccommand(vnc_port)
+		self.console.append('vnccommand: ' + ' '.join(vnccommand))	
+
 		# start up the local vnc client
-		vncprocess = subprocess.Popen(config.vnccommand, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+		vncprocess = subprocess.Popen(vnccommand, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+		
 		# pipe the vncconfig into the new vnc client process
-		vncconfig = config.get_vncconfig(vnc_port)
-		safe_vncconfig = re.sub(r".*Password= *\S*\n","Password=<hidden>\n",vncconfig)
-		self.console.append('vncconfig: ' + safe_vncconfig)		
-		vncprocess.stdin.write(str.encode(vncconfig))
+		#vncconfig = config.get_vncconfig(vnc_port)
+		#safe_vncconfig = re.sub(r".*Password= *\S*\n","Password=<hidden>\n",vncconfig)
+		
+
 		if os.name is not 'nt':
 			applescript.tell.app('Screen Sharing', 'open location "vnc://%s:%s@localhost:%s"' % (config.username, config.password, vnc_port))
 		
