@@ -4,8 +4,7 @@
 # local scirpt version number
 import version
 
-import base64
-from binascii import hexlify
+
 import os
 import select
 import socket
@@ -28,177 +27,16 @@ from PyQt5.QtCore import *
 
 # non-standard libraries 
 import paramiko
-import d3des
+
+
+from config import Config, Password, REMOTE_VNCCOMMAND
 
 if os.name is not 'nt': import applescript
 
 
-#this command will be executed on the remote host to start the Xvnc server session
-REMOTE_VNCCOMMAND = """
-	vncactive() {
-		VNCPID=$(pgrep -U $USER Xvnc* | tr ' ' ',')
-		if [ "$VNCPID" != "" ]; then
-			VNCACTIVE=$(ps -p $VNCPID -o args | grep : | cut -d: -f2 | cut -d' ' -f1)
-		fi
-	};
-	
-	remove_locks() {
-		find /tmp/.X* -user $USER -exec rm '{}' \;
-	};
-	
-	vnckill() {
-		vncactive
-		kill $VNCPID
-	}
-	
-	vncmkpass() {
-		PASS=$(openssl rand -base64 9 | tr '/' ',')
-		echo $PASS | /usr/local/tigervnc/vncpasswd -f > ~/.vnc/passwd 
-	}
-	
-	run_vnc() {
-		mkdir -p ~/.vnc
-		PATH=/usr/local/tigervnc:$PATH;	export PATH
-		
-		vncmkpass
-		
-		vncactive
-		case ${#VNCACTIVE[@]} in 
-			0)
-				#not running
-				remove_locks
-				vncserver -rfbauth ~/.vnc/passwd -xstartup /usr/local/tigervnc/xstartup -geometry 1024x768  &>/dev/null
-				sleep 2 # give the process time to warm up
-				vncactive
-			;;
-		esac 
-
-		echo ${VNCACTIVE[0]}
-		echo 0
-		echo $PASS
-	};
-	run_vnc
-	"""
-
-class Password(str):
-	"""Extended str() class for handling obfuscated VNC passwords. Accepts plaintext str()."""
-	passwordfile = None
-	
-	def obfuscate(self, password):
-		"""Obfuscate a plaintext password in VNC format"""
-		
-		# pad password up to 8 chars, truncate anything over 8
-		passpadd = (password + '\x00'*8)[:8]
-		
-		# load the vnckey from library and change encoding to ascii
-		strkey = ''.join([ chr(x) for x in d3des.vnckey ])
-		ekey = d3des.deskey(bytearray(strkey, encoding="ascii"), False)
-		
-		# encrypt the passpadd section from above
-		ctext = d3des.desfunc(bytearray(passpadd, encoding="ascii"), ekey)
-		
-		# if the password was longer than 8 chars, then recurse, this will chunk the 
-		# password into 8 character obfuscated sections. versions older than 5 will ignore 8+
-		# this method is used by RealVNC but most other implementations truncate at 8
-		
-		#if len(password) > 8:
-		#	ctext += self.obfuscate(password[8:])
-		return ctext
-		
-	def get_vnchex(self):
-		"""return the hexencoded obfuscated vnc password"""
-		return hexlify(self.obfuscate(self)).decode()
-	
-	def get_passwordfile(self):
-		if self.passwordfile: return self.passwordfile.name
-		self.passwordfile = tempfile.NamedTemporaryFile()
-		self.passwordfile.file.write(self.obfuscate(self))
-		print(self.get_vnchex())
-		self.passwordfile.file.flush()
-		return self.passwordfile.name
-		
-	
-class Config():
-	"""Master App config"""
-	def __init__(self):
-		# the host and port we are going to connect to
-		self.remote_host = str()
-		self.remote_port = 22
-
-		self.homedir = os.path.expanduser("~")
-		self.scriptdir = self.get_scriptdir()
-		self.password = Password()
-		
-		#vncargs = ['-config', '-']
-
-		vncargs = ['-PasswordFile', '', 'localhost:%s' ]
-		
-		# these are all possible host options for the dropdown in the GUI
-		self.hosts = ("acropolis.uchicago.edu", "athens.uchicago.edu", "cronus.uchicago.edu", "css.uchicago.edu", "rhodes.uchicago.edu")
-		
-		if os.name == 'nt':
-			# windows is the os
-			self.vnccommand = [ self.scriptdir + '\\vncviewer.exe'] + vncargs
-			self.username = os.environ.get('USERNAME')
-			self.configfile = self.homedir + '\\mvnc.cfg'
-		else:
-			# otherwise presume macos
-
-			# self.vnccommand = [self.scriptdir + '/vncviewer.app/Contents/MacOS/vncviewer'] + vncargs
-			self.vnccommand = ['/System/Library/CoreServices/Applications/Screen Sharing.app/Contents/MacOS/Screen Sharing'] + vncargs
-			self.username = os.environ.get('LOGNAME')
-			self.configfile = self.homedir + '/.mvnc.cfg'
-
-		self.load() 
-
-	def get_vnccommand(self, vnc_port):
-		self.vnccommand[2] = self.password.get_passwordfile()
-		self.vnccommand[3] = self.vnccommand[3] % vnc_port
-		return self.vnccommand
-
-	def get_vncconfig(self, vnc_port):
-		#vncconfig='Host=127.0.0.1:%s\nUsername=%s\n Password=%s\nverifyid=0\nautoreconnect=1\nclientcuttext=1\nencryption=preferoff\nshared=0\nuserlocalcursor=1\nsecuritynotificationtimeout=0\nservercuttext=1\nsharefiles=1\nwarnunencrypted=0\n'
-		vncconfig='-PasswordFile %s 127.0.0.1:%s'
-		return vncconfig % (self.password.get_passwordfile(), vnc_port) 
-
-	def get_scriptdir(self):
-		"""Return the full path of the directory this script is being executed from"""
-		# Determine if application is a script file or frozen exe
-		if getattr(sys, 'frozen', False):
-			application_path = sys._MEIPASS
-		else:
-			application_path = os.path.dirname(os.path.abspath(__file__))
-		return application_path
-
-	def get_fqdn_remote_host(self):
-		return self.remote_host
-		return self.remote_host + ".uchicago.edu"
-
-	def load(self):
-		"""Load options from configfile on disk"""
-		try:
-			file = open(self.configfile)
-			for line in file:
-				(key, value) = line.split('=')
-				if key == 'username':
-					self.username=value.strip()
-				elif key == 'remote_host':
-					remote_host=value.strip()
-					if remote_host in self.hosts:
-						# reject remote_host entries that are options
-						self.remote_host = remote_host
-		except IOError:
-			return
-
-	def save(self):
-		"""Save options to configfile."""
-		file = open(self.configfile, 'w+')
-		file.write('username=%s\nremote_host=%s' % (self.username, self.remote_host))	
-
 # instantiate config and declare it global
 global config
 config = Config()
-
 
 def excepthook(excType, excValue, tracebackobj):
 	"""
@@ -504,6 +342,7 @@ class MainWindow(KQDialog):
 			stdin = chan.makefile('wb')
 			stdout = chan.makefile('rb')
 			stderr = chan.makefile_stderr('rb')
+			
 			# expecting an integer from the remote_vnccommand script, to tell us what port to use
 			vnc_port = int(stdout.readline()) + 5900
 			self.console.append('Discovered VNC on port %i' % (vnc_port))
@@ -543,17 +382,16 @@ class MainWindow(KQDialog):
 
 	def vncprocess(self, vnc_port):
 		"""Start a blocking vnc subprocess, once the vnc process exits terminate the script."""
-		vnccommand = config.get_vnccommand(vnc_port)
-		self.console.append('vnccommand: ' + ' '.join(vnccommand))	
-
-		# start up the local vnc client
-		vncprocess = subprocess.Popen(vnccommand, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 		
-		# pipe the vncconfig into the new vnc client process
-		#vncconfig = config.get_vncconfig(vnc_port)
-		#safe_vncconfig = re.sub(r".*Password= *\S*\n","Password=<hidden>\n",vncconfig)
-		
-
+		try:
+			vnccommand = config.get_vnccommand(vnc_port)
+			self.console.append('vnccommand: ' + ' '.join(vnccommand))
+			
+			# start up the local vnc client
+			vncprocess = subprocess.Popen(vnccommand, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+		finally:
+			config.cleanup_passwordfile()
+			
 		if os.name is not 'nt':
 			applescript.tell.app('Screen Sharing', 'open location "vnc://%s:%s@localhost:%s"' % (config.username, config.password, vnc_port))
 		
