@@ -174,7 +174,7 @@ def forward_tunnel(local_port, remote_host, remote_port, transport):
 			if chan is None:
 				mainwindow.console.append('Incoming request to %s:%d was rejected by the SSH server.' % (remote_host, remote_port))
 				return
-			mainwindow.console.append('Connected!  Tunnel open %r -> %r -> %r' % (self.request.getpeername(), chan.getpeername(), (remote_host, remote_port)))
+			mainwindow.console.append('Connected!  Tunnel open %r -> %r -> %r' % ((remote_host, remote_port), self.request.getpeername(), chan.getpeername()))
 	
 			# The tunnel is established, start send and receive buffer loop
 			while True:
@@ -404,5 +404,11 @@ class MainWindow(KQDialog):
 
 if __name__ == '__main__':
 	app = QApplication(sys.argv)
+
 	mainwindow = MainWindow()
+
+	timer = QTimer()
+	timer.timeout.connect(lambda: None)
+	timer.start(500)
+	
 	sys.exit(app.exec_())
