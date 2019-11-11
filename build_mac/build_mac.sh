@@ -10,6 +10,10 @@ THISDIR=`pwd`
 BUILDDIR=/tmp/easyvnc-build
 PYINSTALLER=/Library/Frameworks/Python.framework/Versions/3.*/bin/pyinstaller
 
+# read in the version of this build
+. ../version.py
+echo "Building version $VERSION"
+
 echo "Clearing out $BUILDDIR"
 rm -rf "$BUILDDIR"
 mkdir -p "$BUILDDIR"
@@ -22,7 +26,7 @@ ln -s /Applications $BUILDDIR/dist/Applications
 rm -rf $BUILDDIR/dist/EasyVNC
 
 codesign --force --deep -s L4U79Z7Z9S $BUILDDIR/dist/EasyVNC.app/Contents/MacOS/EasyVNC
-hdiutil create $BUILDDIR/EasyVNC.dmg -srcfolder $BUILDDIR/dist/ -volname "EasyVNC" -ov -verbose -format UDZO
+hdiutil create $BUILDDIR/EasyVNC-$VERSION.dmg -srcfolder $BUILDDIR/dist/ -volname "EasyVNC" -ov -verbose -format UDZO
 
 
 
