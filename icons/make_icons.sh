@@ -15,4 +15,4 @@ convert _originals/VNC.png -resize 1024 EasyVNC.iconset/icon_512x512@2x.png
 
 iconutil -c icns EasyVNC.iconset
 
-convert EasyVNC.iconset/icon_16x16.png EasyVNC.iconset/icon_32x32.png EasyVNC.iconset/icon_128x128.png EasyVNC.iconset/icon_256x256.png EasyVNC.iconset/icon_512x512.png EasyVNC.ico
+convert EasyVNC.iconset/icon_16x16.png EasyVNC.iconset/icon_32x32.png EasyVNC.iconset/icon_32x32@2x.png EasyVNC.iconset/icon_128x128.png EasyVNC.iconset/icon_256x256.png EasyVNC.iconset/icon_512x512.png EasyVNC.ico
