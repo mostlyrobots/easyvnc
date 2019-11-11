@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['../EasyVNC.py'],
-             pathex=['/Users/lcoady/Google Drive/Career/Work/easyvnc'],
+             pathex=['/Volumes/lcoady/easyvnc'],
              binaries=[],
              hiddenimports=[],
              hookspath=[],
@@ -32,7 +32,7 @@ coll = COLLECT(exe,
                name='EasyVNC')
 app = BUNDLE(coll,
 	name='EasyVNC.app',
-	icon='icons/EasyVNC.icns',
+	icon='../icons/EasyVNC.icns',
 	bundle_identifier=None,
 	info_plist={ 'NSHighResolutionCapable': 'True' })
 

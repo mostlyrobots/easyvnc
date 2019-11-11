@@ -1,5 +1,8 @@
 import base64
 import sys
+import os
+import tempfile
+
 from binascii import hexlify
 
 import d3des
@@ -55,9 +58,9 @@ class Password(str):
 	"""Extended str() class for handling obfuscated VNC passwords. Accepts plaintext str()."""
 	passwordfile = None
 	
-	def obfuscate(self, password):
+	def obfuscate(self):
 		"""Obfuscate a plaintext password in VNC format"""
-		
+		password = self
 		# pad password up to 8 chars, truncate anything over 8
 		passpadd = (password + '\x00'*8)[:8]
 		
@@ -78,7 +81,7 @@ class Password(str):
 		
 	def get_vnchex(self):
 		"""return the hexencoded obfuscated vnc password"""
-		return hexlify(self.obfuscate(self)).decode()
+		return hexlify(self.obfuscate()).decode()
 	
 class Config():
 	"""Master App config"""
@@ -110,7 +113,7 @@ class Config():
 	def get_vnccommand(self, vnc_port):
 		if os.name == 'nt':
 			self.passwordfile = tempfile.NamedTemporaryFile(delete=False)
-			self.passwordfile.write(self.password.obfuscate(self))
+			self.passwordfile.write(self.password.obfuscate())
 			self.passwordfile.close()
 			self.vnccommand = [ self.scriptdir + '\\vncviewer.exe'] + ['-PasswordFile', self.passwordfile.name, 'localhost:%s' % (vnc_port) ]
 

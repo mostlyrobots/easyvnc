@@ -14,8 +14,6 @@ import traceback
 import io
 import re
 
-import tempfile
-
 import socketserver
 import _thread as thread
 import subprocess
@@ -383,14 +381,12 @@ class MainWindow(KQDialog):
 	def vncprocess(self, vnc_port):
 		"""Start a blocking vnc subprocess, once the vnc process exits terminate the script."""
 		
-		try:
-			vnccommand = config.get_vnccommand(vnc_port)
-			self.console.append('vnccommand: ' + ' '.join(vnccommand))
-			
-			# start up the local vnc client
-			vncprocess = subprocess.Popen(vnccommand, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-		finally:
-			config.cleanup_passwordfile()
+		vnccommand = config.get_vnccommand(vnc_port)
+		self.console.append('vnccommand: ' + ' '.join(vnccommand))
+		
+		# start up the local vnc client
+		vncprocess = subprocess.Popen(vnccommand, stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+		
 			
 		if os.name is not 'nt':
 			applescript.tell.app('Screen Sharing', 'open location "vnc://%s:%s@localhost:%s"' % (config.username, config.password, vnc_port))
@@ -401,6 +397,7 @@ class MainWindow(KQDialog):
 		vncprocess.wait()
 
 		self.console.append("VNC has quit.")
+		config.cleanup_passwordfile()
 		sys.exit()
 
 
